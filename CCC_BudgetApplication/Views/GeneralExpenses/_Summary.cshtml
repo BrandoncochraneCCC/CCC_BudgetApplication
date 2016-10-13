@@ -1,0 +1,33 @@
+﻿@model Application.ViewModels.DataTable
+<h3>@Html.ActionLink(Model.tableName, "GeneralExpenseSummary", "GeneralExpenses")</h3>
+<hr />
+
+<table class="table">
+    @Html.Partial("~/Views/Shared/_TableHeader.cshtml")
+    @foreach (var item in Model.dataList)
+            {
+        <tr>
+            <td class="name">@Html.ActionLink(item.Name, item.Action, item.Controller, new { expenseID = item.SourceID }, null)</td>
+            <td class="total"></td>
+
+            @{
+                var tCount = 1;
+                foreach (var x in item.Values)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + tCount;
+                    <td class="@column">@text</td>
+                    tCount++;
+                }
+            }
+        </tr>
+                }
+    @Html.Partial("~/Views/Shared/_Tablesum.cshtml")
+</table>
+
+
+

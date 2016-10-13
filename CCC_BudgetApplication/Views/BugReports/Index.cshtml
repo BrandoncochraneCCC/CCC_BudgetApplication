@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Application.Models.BugReport>
+
+@{
+    ViewBag.Title = "Index";
+}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/BugReportScript.js")"></script>
+
+<h4>Bug Reports</h4>
+<h1>@ViewBag.Groups</h1>
+<ul style="list-style:none;" >
+    <li style="display:inline-block;">
+        @Html.ActionLink("Date | ", "Index", new { sortOrder = ViewBag.DateSortParam, currentFilter = ViewBag.CurrentFilter }) 
+    </li>
+    <li style="display:inline-block;">
+        @Html.ActionLink("In Progress | " , "Index", new { sortOrder = ViewBag.ProgressSortParam, currentFilter = ViewBag.CurrentFilter })
+    </li>
+    <li style="display:inline-block;">
+        @Html.ActionLink("Resolved", "Index", new { sortOrder = ViewBag.ResolvedSortParam, currentFilter = ViewBag.CurrentFilter })
+    </li>
+</ul>
+
+<div class="table" style="overflow:auto;">
+    @foreach (var item in Model)
+    {
+        if (item != null)
+        {
+            <div class="row">
+                <div class="col-lg-2" style="text-align:right;">
+                    @Html.DisplayNameFor(model => model.Username)
+                </div>
+                <div class="col-lg-4" style="text-align:left;">
+                    @Html.DisplayFor(modelItem => item.Username)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2" style="text-align:right;">
+                    In Progress
+                </div>
+                <div class="col-lg-2" style="text-align:right;">
+                    @if (item.InProgress != null && (bool)item.InProgress)
+                    {
+                        <input type="checkbox" class="checkbox inProgress" value="@item.Id" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="checkbox inProgress" value="@item.Id"/>
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2" style="text-align:right;">
+                    @Html.DisplayNameFor(model => model.Resolved)
+                </div>
+                <div class="col-lg-2" style="text-align:right;">
+                    @if (item.Resolved != null && (bool)item.Resolved)
+                    {
+                        <input type="checkbox" class="checkbox resolved" value="@item.Id"  checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="checkbox resolved" value="@item.Id" />
+                    }
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2" style="text-align:right;">
+                    @Html.DisplayNameFor(model => model.Date) (UTC +0)
+                </div>
+                <div class="col-lg-4" style="text-align:left;">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2" style="text-align:right;">
+                    <span class="BugReportID">@item.Id</span> - @Html.DisplayNameFor(model => model.description)
+                </div>
+                <div class="col-lg-8" style="text-align:left;">
+                    @Html.DisplayFor(modelItem => item.description) 
+                </div>
+            </div>
+            <div class="row highlight" style="height:50px;"></div>
+        }
+
+    }
+
+    </div>

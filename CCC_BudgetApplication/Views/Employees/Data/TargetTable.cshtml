@@ -1,0 +1,51 @@
+﻿@model Application.ViewModels.DataTable
+@using Application.Controllers
+<table class="table target">
+    @{
+            ObjectInstanceController c = new ObjectInstanceController();
+            @Html.DropDownList("nonRevenueHours", c.NonRevenueHours() , htmlAttributes: new { @class = "form-control" })
+
+
+            var first = Model.dataList.First();
+        <tr id="@first.SourceID">
+            <td>Target Hours</td>
+            @{ 
+                var hour = @String.Format("{0:0}", first.Values[0]);
+                <td style="width:60px;">@Html.EditorFor(m => hour)</td>
+           }
+        </tr>
+        @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+        foreach (var item in Model.dataList.Skip(1))
+        {
+                    
+            <tr class="hour @item.viewClass" id="@item.SourceID">
+                @{
+                    <td class="name">
+                        @item.Name
+                    </td>
+                    var count = 1;
+
+                    if (item.Values != null)
+                    {
+                        <td class="total"></td>
+                        foreach (var x in item.Values)
+                        {
+                            var text = "";
+                            if (x != 0)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            var column = "data col" + count;
+                            <td class="@column">@text</td>
+                            count++;
+
+                        }
+                    }
+                }
+            </tr>
+
+
+                    }
+
+    }
+</table>

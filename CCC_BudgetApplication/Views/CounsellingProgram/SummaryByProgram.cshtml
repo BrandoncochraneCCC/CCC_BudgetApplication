@@ -1,0 +1,54 @@
+﻿@model  List<Application.ViewModels.groupCounselling>
+@{
+    ViewBag.Title = "SummaryByProgram";
+}
+<h2>@Html.ActionLink("Summary By Program", "Index", "Counselling")</h2>
+@{ 
+        <table class="table">
+            <tr class="fixedElement">
+                <th>Program</th>
+                <th>No. Of Programs</th>
+                <th>Clients / Program</th>
+                <th>Total No. Clients</th>
+                <th>Total Fee</th>
+                <th>Fee Per Client Per Program</th>
+                <th>Total Revenue Hours</th>
+                <th>Total Preparation Hours</th>
+                <th>Total Program Hours</th>
+                <th>Revenue Per Hour</th>
+                <th>Revenue Per Counselling Hour</th>
+                <th>Revenue Per Preparation Hour</th>
+                <th>Primary Facilitator Hours</th>
+                <th>Co Facilitator Hours</th>
+            </tr>
+
+            @foreach(var item in Model)
+            {
+                <tr class="@item.ViewClass">
+                    @if(item.name == "Total")
+                    {
+                        <td>@item.name</td>
+                    }
+                    else
+                    {
+                        <td>@Html.ActionLink(item.name, "IndividualProgram", "CounsellingProgram", new { ID = item.programID }, null )</td>
+
+                    }
+                    <td>@Html.DisplayFor(x => item.numPrograms)</td>
+                    <td>@Html.DisplayFor(x => item.clientsPerProgram )</td>
+                    <td>@Html.DisplayFor(x => item.totalClients )</td>
+                    <td>@Html.DisplayFor(x => item.totalFee )</td>
+                    <td>@Html.DisplayFor(x => item.feePerClient )</td>
+                    <td>@Html.DisplayFor(x => item.revenueHours )</td>
+                    <td>@Html.DisplayFor(x => item.prepHours )</td>
+                    <td>@Html.DisplayFor(x => item.totalHours )</td>
+                    <td>@Html.DisplayFor(x => item.revPerHour )</td>
+                    <td>@Html.DisplayFor(x => item.revPerCounsellingHour )</td>
+                    <td>@Html.DisplayFor(x => item.revPerPrepHour )</td>
+                    <td>@Html.DisplayFor(x => item.primaryHour )</td>
+                    <td>@Html.DisplayFor(x => item.coHours )</td>                                                              
+                </tr>
+            }
+
+        </table>
+}

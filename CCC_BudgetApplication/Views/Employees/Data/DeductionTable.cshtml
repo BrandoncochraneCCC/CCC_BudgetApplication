@@ -1,0 +1,57 @@
+﻿@model Application.ViewModels.employeeData.Deductions
+
+<h4>Deductions</h4>
+
+<table class="table deduction">
+    <tr>
+        <th></th>
+        <th>CPP</th>
+        <th>EI</th>
+        <th>@Html.DropDownListFor(m => Model.rrspID, Model.rrsp)</th>
+    </tr>
+    <tr>
+        <td>Max</td>
+        <td>
+            @if (Model.cppMax > 0)
+            {
+                @Html.DisplayFor(m => m.cppMax)
+            }
+        </td>
+        <td>
+            @if (Model.eiMax > 0)
+            {
+                @Html.DisplayFor(m => m.eiMax)
+            }
+        </td>
+        <td>
+            @if (Model.rrspMax > 0)
+            {
+                @Html.DisplayFor(m => m.rrspMax)
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Rate</td>
+        <td>
+            @if (Model.cppRate > 0)
+            {
+                @Html.DisplayFor(m => m.cppRate)
+            }
+        </td>
+
+        <td>
+            @if (Model.eiRate > 0)
+            {
+                @Html.DisplayFor(m => m.eiRate)
+            }
+        </td>
+        <td>
+            @if (Model.rrspRate > 0)
+            {
+                @Html.DisplayFor(m => m.rrspRate)
+            }
+        </td>
+    </tr>
+
+
+</table>

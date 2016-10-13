@@ -1,0 +1,42 @@
+﻿@model Application.Models.CapitalExpenditure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CapitalExpenditure</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapitalExpenditure2.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapitalExpenditure2.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pool.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pool.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CapitalExpenditureID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

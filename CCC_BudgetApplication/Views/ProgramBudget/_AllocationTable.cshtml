@@ -1,0 +1,18 @@
+﻿@model Application.ViewModels.ProgramBudgetViewModel
+
+<tr class="@Model.viewClass">
+    <th class="col-lg-4">@Html.DisplayFor(m => Model.name)</th>
+    <td class="col-lg-4">
+        @if (Model.value != 0)
+        {
+            @Html.DisplayFor(m => Model.value)
+        }
+    </td>
+    <td class="col-lg-4">
+        @if (Model.percent != 0)
+        {
+            @Html.DisplayFor(m => Model.percent)
+        }
+    </td>
+</tr>
+

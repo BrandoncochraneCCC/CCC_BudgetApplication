@@ -1,0 +1,45 @@
+﻿@model Application.ViewModels.DataTable
+
+<h3>@Html.ActionLink(Model.tableName, "Index", "Revenues")</h3>
+<hr />
+<table class="table col-lg-12">
+    <!--Table header row-->
+    @Html.Partial("~/Views/Shared/_TableHeader.cshtml")
+
+
+    @foreach(var item in Model.dataList)
+            {
+        <tr>
+            <td class="name">
+                @{
+                    if (@item.Action == null) { item.Action = "Index"; }
+                }
+                @Html.ActionLink(@item.Name, @item.Action, @item.Controller, new { revenueID = item.SourceID, header = item.tableName }, null)
+
+            </td>
+            <td class="total"></td>
+            @{
+                var count = 1;
+                if (item.Values != null)
+                {
+                    foreach (var x in item.Values)
+                    {
+                        var text = "";
+                        if (x > 0)
+                        {
+                            text = String.Format("{0:C0}", x);
+                        }
+                        var column = "data col" + count;
+                        <td class="@column">@text</td>
+                        count++;
+                    }
+                }
+
+            }
+
+        </tr>
+                }
+
+    @Html.Partial("~/Views/Shared/_TableSum.cshtml")
+
+</table>

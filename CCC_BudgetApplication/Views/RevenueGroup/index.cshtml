@@ -1,0 +1,90 @@
+﻿@model List<Application.ViewModels.DataTable>
+
+@{
+    ViewBag.Title = "index";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/RevenueGroupScript.js")"></script>
+
+
+
+<h2>@Html.ActionLink("Revenues" , "Index", "Revenues")</h2>
+<hr />
+
+@*<p>
+ @Html.ActionLink("Create New", "Create", "RevenueDatas", new { year = Model.Year }, null) 
+</p>*@
+@{
+    foreach (var table in Model)
+    {
+
+
+        <table class="table">
+            @Html.Partial("~/Views/Shared/_TableName.cshtml", @table)
+
+            <tbody>
+                @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml", @table.tableName)
+
+                @if (table.dataList != null)
+                {
+
+                    foreach (var item in table.dataList)
+                    {
+                        <tr class="@item.SourceID">
+                            @{
+                                if (@item.hasChildren)
+                                {
+                                    <td class="name">
+                                        <span id="@item.SourceID"></span>
+                                        @Html.ActionLink(item.Name, "Index", "RevenueGroup", new { revenueID = item.SourceID }, null )
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="name canEdit">
+                                        <span id="@item.SourceID"></span>
+                                        @item.Name
+                                    </td>
+                                }
+                            }
+                            
+                           
+                            <td class="total"></td>
+
+                            @{
+                                var count = 1;
+                                foreach (var x in item.Values)
+                                {
+                                    var text = "";
+                                    if (x != 0)
+                                    {
+                                        text = String.Format("{0:C0}", x);
+                                    }
+                                    var column = "data col" + count;
+                                    <td class="@column">@text</td>
+                                    count++;
+                                }
+
+                            }
+
+
+
+                        </tr>
+                                }
+
+                                }
+               
+
+                @Html.Partial("~/Views/Shared/_Tablesum.cshtml")
+
+
+
+            </tbody>
+        </table>
+
+                        }
+}
+
+
+

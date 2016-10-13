@@ -1,0 +1,331 @@
+﻿@model Application.ViewModels.AdminViewModel
+@{
+    ViewBag.Title = "Admin";
+}
+<h2>Admin Controls</h2>
+<hr />
+<!-- ----------------------------------
+BENEFITS
+----------------------------------- -->
+@*<div class="container" id="benefits">
+        <h4>Benefits</h4>
+        <div class="section col-md-12" id="family">
+            <div class="col-md-2">
+                Family Benefit:
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => Model.FamilyBenfit, Model.FamilyBenfit)
+            </div>
+            <div class="col-md-8">
+                @Html.Partial("Benefits/_CreateBenefit", "family")
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="individual">
+            <div class="col-md-2">
+                Individual Benefit:
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => Model.IndividualBenefit, Model.IndividualBenefit)
+            </div>
+            <div class="col-md-8">
+                @Html.Partial("Benefits/_CreateBenefit", "individual")
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="vacation">
+            <div class="col-md-2">
+                Vacation:
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => Model.Vacation, Model.Vacation)
+            </div>
+            <div class="col-md-8">
+                @Html.Partial("Benefits/_CreateBenefit", "vacation")
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="std">
+            <div class="col-md-2">
+                Short Term Disability:
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(m => Model.STD, Model.STD)
+            </div>
+            <div class="col-md-8">
+                @Html.Partial("Benefits/_CreateBenefit", "std")
+            </div>
+        </div>
+        <br />
+
+    </div>
+    <hr />*@
+<!-- ----------------------------------
+COUNSELLING DATA
+----------------------------------- -->
+<div class="container" id="programType">
+    <div class="section col-md-12" id="counsellingTypes">
+        <div class="col-md-2">
+            <h4>Add Counselling Program Type:</h4>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("CounsellingGroupTypeID", Model.CounsellingGroup, htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-7">
+            @Html.Partial("Counselling/_counsellingType", Model.CounsellingGroup)
+        </div>
+
+    </div>
+</div>
+<hr />
+<br />
+<div class="container" id="counselling">
+    <div class="section col-md-12" id="programs">
+        <div class="col-md-2">
+            <h4>Add Counselling Programs:</h4>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownListFor(m => Model.CounsellingProgram, Model.CounsellingProgram, new { @class = "form-control" })
+        </div>
+        <div class="col-md-7">
+            @Html.Partial("Counselling/_createProgram", Model.CounsellingGroup)
+        </div>
+
+    </div>
+</div>
+<hr />
+<br />
+<!-- ----------------------------------
+EMPLOYEE DATA
+----------------------------------- -->
+<div class="container" id="department">
+    <div class="section col-md-12" id="department">
+        <div class="col-md-2">
+            <h4>Add Department:</h4>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownListFor(m => Model.Department, Model.Department, new { @class = "form-control" })
+        </div>
+        <div class="col-md-7">
+            @Html.Partial("Employee/_departments")
+        </div>
+
+    </div>
+</div>
+<hr />
+<br />
+<div class="container" id="type" style="margin-bottom:40px;">
+
+    <div class="section col-md-12" id="type">
+        <div class="col-md-2">
+            <h4>Add Employee Types:</h4>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownListFor(m => Model.Type, Model.Type, new { @class = "form-control" })
+        </div>
+        <div class="col-md-7">
+            @Html.Partial("Employee/_type")
+        </div>
+    </div>
+    <br />
+</div>
+@*<div class="section col-md-12" id="hoursPerYear">
+        Hours Per Year:
+        <div class="form-group">
+            <form action="hoursPerYear" method="post">
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => Model.HoursPerYear, Model.HoursPerYear)
+                </div>
+                <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                <div class="col-md-1">
+                    <input type="submit" name="hoursPerYear" value="save" class="btn btn-default" style="padding:0;" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <br />*@
+@*<div class="section col-md-12" id="employeeTargetHours">
+            Employee Target Hour:
+            <div class="form-group">
+                <form action="employeeTargetHours" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="employeeTargetHours" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr />*@
+<!-- ----------------------------------
+EMPLOYEE COSTS
+----------------------------------- -->
+@*<div class="container" id="employeeCosts">
+        <h4>Employee Costs</h4>
+        <div class="section col-md-12" id="averageFeeFT">
+            Average Fee Full-Time:
+            <div class="form-group">
+                <form action="averageFeeFT" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="averageFeeFT" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="averageFeePT">
+            Average Fee Part-Time:
+            <div class="form-group">
+                <form action="averageFeePT" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="averageFeePT" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="averageFeeStudent">
+            Average Fee Student:
+            <div class="form-group">
+                <form action="averageFeeStudent" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="averageFeeStudent" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="averageFeeCounselling">
+            Average Fee Per Counselling Hour
+            <div class="form-group">
+                <form action="averageFeeCounselling" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="averageFeeCounselling" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr />*@
+<!-- ----------------------------------
+DEDUCTIONS
+----------------------------------- -->
+@*<div class="container" id="deductions">
+        <h4>Deductions</h4>
+        <div class="section col-md-12" id="cpp">
+            CPP:
+            <div class="form-group">
+                <form action="cpp" method="post">
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => Model.CPP, Model.CPP)
+                    </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "rate") </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "max") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="cpp" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="ei">
+            EI:
+            <div class="form-group">
+                <form action="ei" method="post">
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => Model.EI, Model.EI)
+                    </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "rate") </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "max") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="ei" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="rrsp">
+            RRSP:
+            <div class="form-group">
+                <form action="rrsp" method="post">
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => Model.RRSP, Model.RRSP)
+                    </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "rate") </div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "max") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="rrsp" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <hr />*@
+<!-- ----------------------------------
+RESIDENT DATA
+----------------------------------- -->
+@*<div class="container" id="bursaryData">
+        <h4>Resident Data</h4>
+        <div class="section col-md-12" id="residentTarget">
+            Resident Target Hours:
+            <div class="form-group">
+                <form action="residentTarget" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="residentTarget" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="totalBursary">
+            TotalBursary:
+            <div class="form-group">
+                <form action="totalBursary" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="totalBursary" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="bursary">
+            Bursary:
+            <div class="form-group">
+                <form action="bursary" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="bursary" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="section col-md-12" id="clawback">
+            Clawback:
+            <div class="form-group">
+                <form action="clawback" method="post">
+                    <div class="col-md-2">@Html.TextBox("textbox", "dropdown")</div>
+                    <div class="col-md-2">@Html.TextBox("textbox", "value") </div>
+                    <div class="col-md-1">
+                        <input type="submit" name="clawback" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@

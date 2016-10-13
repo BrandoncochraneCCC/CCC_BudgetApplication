@@ -1,0 +1,12 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Success Message";
+}
+
+<h2 style="color:green;">@Model.ElementAtOrDefault(0)</h2>
+
+@for(var i = 1; i< Model.Count(); i++)
+{
+    <p>@Model.ElementAtOrDefault(i)</p>
+}
+

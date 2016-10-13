@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Application.Models.ChangeLog>
+
+@{
+    ViewBag.Title = "Change Log";
+}
+<script type="text/javascript">
+
+    setTimeout(function () {
+        location.reload();
+    }, 60 * 1000);
+
+
+</script>
+
+<h2>Change Log</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table div-table row fixedElement" style="width:100%; background-color:#f7f7f7;">
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.URL)
+    </div>
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.Row)
+    </div>
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.Old)
+    </div>
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.New)
+    </div>
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.TimeStamp)
+    </div>
+    <div class="col-lg-2">
+        @Html.DisplayNameFor(model => model.User)
+    </div>
+</div>
+<div class="table div-table">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@item.URL">Location</a>
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.Row)
+
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.Old)
+
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.New)
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+
+            </div>
+            <div class="col-lg-2">
+                @Html.DisplayFor(modelItem => item.User)
+
+            </div>
+        </div>
+
+
+    }
+
+</div>

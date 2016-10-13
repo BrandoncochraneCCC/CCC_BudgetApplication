@@ -1,0 +1,54 @@
+﻿@model Application.ViewModels.DataTable
+
+<table class="table">
+    @Html.Partial("~/Views/Shared/_TableHeader.cshtml")
+    @foreach(var item in Model.dataList)
+    {
+        var s = "";
+        if(item.viewClass != null)
+        {
+            s = "class=" + @item.viewClass;
+
+        }
+        <tr @s>
+            <td class="name">@item.Name</td>
+
+            @{
+                var count = 1;
+                if (item.percentValues != null)
+                {
+                    <td class="percentTotal total"></td>
+                    foreach (var x in item.percentValues)
+                    {
+                        var text = "";
+                        if (x != 0)
+                        {
+                            text = x.ToString();
+                        }
+                        var column = "percent data col" + count;
+                        <td class="@column">@text</td>
+                        count++;
+                    }
+                }
+                else
+                {
+                    <td class="total"></td>
+
+                    var tCount = 1;
+                    foreach (var x in item.Values)
+                    {
+                        var text = "";
+                        if (x > 0)
+                        {
+                            text = String.Format("{0:0}", x);
+                        }
+                        var column = "data col" + tCount;
+                        <td class="@column">@text</td>
+                        tCount++;
+                    }
+                }
+
+            }
+        </tr>
+                }
+</table>

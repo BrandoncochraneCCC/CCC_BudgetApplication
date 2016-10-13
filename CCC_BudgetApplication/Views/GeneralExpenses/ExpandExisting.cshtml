@@ -1,0 +1,19 @@
+﻿@model IQueryable<Application.Models.ExistingHardware>
+
+<table class="table" style="width:40%; clear:both">
+    <tr class="fixedElement existingHardware">
+        <th>Name</th>
+        <th style="padding-right: 20px; padding-left:20px;">Age</th>
+        <th>Amortization</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        decimal serverAmortizationTotal = 0;
+        <tr>
+            <td class="@item.ExistingHardwareID">@Html.DisplayFor(m => item.Name)</td>
+            <td>@Html.DisplayFor(m => item.Age)</td>
+            <td>@Html.DisplayFor(m => item.Amortization)</td>
+            @if (item.Amortization != null) { serverAmortizationTotal += (decimal)item.Amortization; }
+        </tr>
+    }
+</table>

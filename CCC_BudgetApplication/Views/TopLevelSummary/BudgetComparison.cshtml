@@ -1,0 +1,136 @@
+﻿@model Application.ViewModels.BudgetComparison
+@{
+    ViewBag.Title = "BudgetComparison";
+}
+<h2>Budget Comparison @Model.Year</h2>
+<table class="table">
+    <tr class="fixedElement">
+        <th></th>
+        <th>Budget @(Model.Year - 1)</th>
+        <th>Actual @(Model.Year - 1)</th>
+        <th>Budget @Model.Year</th>
+        <th>% difference between Actual @(Model.Year - 1) & Budget @(Model.Year - 1)</th>
+        <th>% difference between Budget @Model.Year & Actual @(Model.Year - 1)</th>
+    </tr>
+    <tr>
+        <th><h4>@Html.ActionLink("Revenues", "Index", "Revenues")</h4></th>
+    </tr>
+    @foreach (var r in Model.Revenues)
+    {
+        <tr>
+            <td>@Html.ActionLink(r.Name, "Index", "RevenueGroup", new { revenueID = r.SourceID }, null )</td>
+            <td>@Html.DisplayFor(m => r.BudgetedPrev)</td>
+            <td>@Html.DisplayFor(m => r.ActualPrev)</td>
+            <td>@Html.DisplayFor(m => r.BudgetedCurrent)</td>
+            <td>@Html.DisplayFor(m => r.percentDiffPrevYear)</td>
+            <td>@Html.DisplayFor(m => r.PercentDiffCurrentPrevActual)</td>
+        </tr>
+    }
+    <tr class="highlight">
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.Name)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr style="height:50px;"></tr>
+
+    <tr>
+        <th><h4>@Html.ActionLink("Service Expenses", "ServiceExpenseSummary", "ServiceExpense")</h4></th>
+    </tr>
+    @foreach (var s in Model.ServiceExpenses)
+    {
+        <tr>
+            <td>@Html.ActionLink(s.Name, "ServiceExpense", "ServiceExpense", new { expenseID = s.SourceID }, null)</td>
+            <td>@Html.DisplayFor(m => s.BudgetedPrev)</td>
+            <td>@Html.DisplayFor(m => s.ActualPrev)</td>
+            <td>@Html.DisplayFor(m => s.BudgetedCurrent)</td>
+            <td>@Html.DisplayFor(m => s.percentDiffPrevYear)</td>
+            <td>@Html.DisplayFor(m => s.PercentDiffCurrentPrevActual)</td>
+        </tr>
+    }
+    <tr class="highlight">
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.Name)</td>
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.ServiceExpenseTotal.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr style="height:50px;"></tr>
+
+    <tr>
+        <th><h4>@Html.ActionLink("G&A", "GeneralExpenseSummary", "GeneralExpenses")</h4></th>
+    </tr>
+    @foreach (var g in Model.GeneralExpenses)
+    {
+        <tr>
+            <td>@Html.ActionLink(g.Name, "GeneralExpense", "GeneralExpenses", new { expenseID = g.SourceID }, null)</td>
+            <td>@Html.DisplayFor(m => g.BudgetedPrev)</td>
+            <td>@Html.DisplayFor(m => g.ActualPrev)</td>
+            <td>@Html.DisplayFor(m => g.BudgetedCurrent)</td>
+            <td>@Html.DisplayFor(m => g.percentDiffPrevYear)</td>
+            <td>@Html.DisplayFor(m => g.PercentDiffCurrentPrevActual)</td>
+        </tr>
+    }
+    <tr class="highlight">
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.Name)</td>
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.GAExpenseTotal.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr style="height:50px;"></tr>
+    <tr>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.Name)</td>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.ExpenseTotal.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.Name)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.RevenueTotal.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr class="highlight">
+        <td>@Html.DisplayFor(m => Model.NetIncome.Name) Revenues</td>
+        <td>@Html.DisplayFor(m => Model.NetIncome.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.NetIncome.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.NetIncome.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.NetIncome.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.NetIncome.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr style="height:50px;"></tr>
+    <tr>
+        <td>@Html.DisplayFor(m => Model.Amortization.Name)</td>
+        <td>@Html.DisplayFor(m => Model.Amortization.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.Amortization.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.Amortization.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.Amortization.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.Amortization.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(m => Model.Depreciation.Name)</td>
+        <td>@Html.DisplayFor(m => Model.Depreciation.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.Depreciation.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.Depreciation.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.Depreciation.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.Depreciation.PercentDiffCurrentPrevActual)</td>
+    </tr>
+    <tr style="height:50px;"></tr>
+    <tr class="highlight">
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.Name) Including Amortization</td>
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.BudgetedPrev)</td>
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.ActualPrev)</td>
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.BudgetedCurrent)</td>
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.percentDiffPrevYear)</td>
+        <td>@Html.DisplayFor(m => Model.NetWithAmortization.PercentDiffCurrentPrevActual)</td>
+    </tr>
+</table>

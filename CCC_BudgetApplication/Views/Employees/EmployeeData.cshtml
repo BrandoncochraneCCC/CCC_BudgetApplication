@@ -1,0 +1,92 @@
+﻿@model Application.ViewModels.EmployeeDataViewModel
+
+@{
+    ViewBag.Title = "EmployeeInformation";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/EmployeeDataScript.js")"></script>
+<script src="@Url.Content("~/Scripts/ChangeDetector.js")" type="text/javascript"></script>
+
+
+@{
+
+    <div class="fixedElement" style="background-color:white; padding: 10px; overflow:auto;">
+        @if (Model.EmployeeName != null)
+        {
+            <h2 class="col-lg-3" style="padding:0; margin:0;">@Html.ActionLink(Model.EmployeeName, "Details", "Employees", new { @class = "h2" }) </h2>
+        }
+        else
+        {
+            <h2>Employee</h2>
+        }
+         <input type="button" class="emp-save-btn" value="Save" style="float:right; width: 75px; height:30px; text-align:center; padding-right:3px">       
+     </div>
+    <hr />
+    if (Model.InformationTable != null)
+    {
+        if (Model.InformationTable.informationTable.StartDate > Model.InformationTable.informationTable.EndDate)
+        {
+            <h1 style="color:red; float:right;">END DATE CANNOT BE BEFORE START DATE</h1>
+        }
+    }
+
+    <div class="partial">
+
+        @if (Model.BudgetedSalaryTable != null)
+        {
+            <span class="col-lg-6">@Html.Partial("~/Views/Employees/Data/BudgetedSalaryTable.cshtml", Model.BudgetedSalaryTable)</span>
+        }
+        <span class="col-lg-1"></span>
+        @if (Model.InformationTable != null)
+        {
+            <span class="col-lg-5">@Html.Partial("~/Views/Employees/Data/InformationTable.cshtml", Model.InformationTable)</span>
+        }
+    </div>
+    <div class="partial">
+        @if (Model.DeductionTable != null)
+        {
+            <span class="col-lg-5">@Html.Partial("~/Views/Employees/Data/DeductionTable.cshtml", Model.DeductionTable)</span>
+        }
+        <span class="col-lg-1"></span>
+        @if (Model.BenefitTable != null)
+        {
+            <span class="col-lg-6"> @Html.Partial("~/Views/Employees/Data/BenefitTable.cshtml", Model.BenefitTable)</span>
+        }
+    </div>
+    <div class="partial">
+        <div class="col-lg-5">
+            @Html.Partial("~/Views/Employees/Data/RaiseInput.cshtml")
+        </div>
+
+        <div class="col-lg-1"></div>
+        @if (Model.EmployeeRaise != null)
+        {
+            <div class="col-lg-6">
+                @Html.Partial("~/Views/Employees/Data/RaiseTable.cshtml", Model.EmployeeRaise)
+            </div>
+        }
+    </div>
+    if (Model.SalaryTable != null)
+    {
+        @Html.Partial("~/Views/Employees/Data/SalaryTable.cshtml", Model.SalaryTable)
+        if (Model.RaiseTable != null)
+        {
+            @Html.Partial("~/Views/Employees/Data/SalaryTable.cshtml", Model.RaiseTable)
+        }
+    }
+
+
+    <br />
+    if (Model.TargetTable != null)
+    {
+        <h4>@Model.TargetTable.tableName</h4>
+        @Html.Partial("~/Views/Employees/Data/TargetTable.cshtml", Model.TargetTable)
+    }
+    else if (Model.deptID == 1)
+    {
+        <button type="button" class="btn btn-default addTarget" id="@Model.year">add target</button>
+    }
+
+}
+

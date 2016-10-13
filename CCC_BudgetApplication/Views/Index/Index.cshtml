@@ -1,0 +1,100 @@
+﻿@using Application.Controllers
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container" style="overflow:auto;">
+    <h2>Page Index</h2>
+    <hr />
+    <h4>@Html.ActionLink("Top Level Summary", "Index", "TopLevelSummary")</h4>
+    @User.Identity
+    <div class="col-lg-6">
+        <h2>Amortization</h2>
+        <hr />
+        <h4>@Html.ActionLink("Capital Assets Continuity Schedule", "AmortizationCost", "Amortization")</h4>
+        <h4>@Html.ActionLink("Deferred Amortization", "AmortizationCost", "Amortization")</h4>
+        <h4>@Html.ActionLink("Pools", "Index", "Pools")</h4>
+        <h4>@Html.ActionLink("Additions", "Index", "Additions")</h4>
+
+        <div style="height:50px;"></div>
+
+    </div>
+    <div class="col-lg-6">
+        <h2>Counselling</h2>
+        <hr />
+        <h4>@Html.ActionLink("Counselling Analysis", "CounsellingAnalysis", "Counselling")</h4>
+        <h4>@Html.ActionLink("Summary Counselling", "SummaryCounselling", "Counselling")</h4>
+        <h4>@Html.ActionLink("Cost of Service Counselling Hour", "CostofServiceCounsellingHour", "Counselling")</h4>
+        <h4>@Html.ActionLink("Counselling Hours", "EmployeeCounsellingHours", "Counselling")</h4>
+        <h4>@Html.ActionLink("Counselling Programs", "Program", "CounsellingProgram")</h4>
+        <h4>@Html.ActionLink("Group Therapy Hours", "GroupCounsellingHours", "Counselling")</h4>
+        <h4>@Html.ActionLink("Supervising Hours", "SupervisionHours", "Counselling")</h4>
+        <h4>@Html.ActionLink("Total Group Hours", "TotalGroupHours", "CounsellingProgram")</h4>
+        <h4>@Html.ActionLink("Total Revenue Hours", "RevenueHours", "CounsellingProgram")</h4>
+        <h4>@Html.ActionLink("Total Preparation Hours", "PreparationHours", "CounsellingProgram")</h4>
+        <h4>@Html.ActionLink("Group Summary By Program", "SummaryByProgram", "CounsellingProgram")</h4>
+        <div style="height:50px;"></div>
+
+    </div>
+    <div class="col-lg-6">
+        <h2>Expenses</h2>
+        <hr />
+        <h4>@Html.ActionLink("All General Expenses", "Index", "GeneralExpenses")</h4>
+        <h4>@Html.ActionLink("All Service Expenses", "Index", "ServiceExpenses")</h4>
+        <h4>@Html.ActionLink("Service Expenses Summary", "ServiceExpenseSummary", "ServiceExpense")</h4>
+        <h4>@Html.ActionLink("General Expenses Summary", "GeneralExpenseSummary", "GeneralExpenses")</h4>
+        <div style="height:50px;"></div>
+
+    </div>
+
+    <div class="col-lg-6">
+        <h2>Human Resources</h2>
+        <hr />
+        <h4>@Html.ActionLink("All Employees", "Index", "Employees")</h4>
+        <h4>@Html.ActionLink("Current Employees", "Details", "Employees")</h4>
+        <h4>@Html.ActionLink("Department Summaries", "DepartmentSummary", "Employees")</h4>
+        <h4>@Html.ActionLink("Employee Comparison", "EmployeeComparison", "Employees")</h4>
+        <h4>@Html.ActionLink("Employee Costs", "EmployeeCost", "Employees")</h4>
+        <h4>@Html.ActionLink("Interns", "Intern", "Employees")</h4>
+        <h4>@Html.ActionLink("List of Residents", "Index", "Bursaries")</h4>
+        <h4>@Html.ActionLink("Targets", "Targets", "Employees")</h4>
+        <div style="height:50px;"></div>
+
+    </div>
+
+    <div class="col-lg-6">
+        <h2>IT</h2>
+        <hr />
+        <h4>@Html.ActionLink("Existing Hardware", "ExistingHardware", "GeneralExpenses")</h4>
+        <h4>@Html.ActionLink("Hardware", "GeneralExpense", "GeneralExpenses", new { expenseID = ObjectInstanceController.HARDWARE }, null)</h4>
+        <h4>@Html.ActionLink("Software", "GeneralExpense", "GeneralExpenses", new { expenseID = ObjectInstanceController.SOFTWARE }, null)</h4>
+        <h4>@Html.ActionLink("IT Communications", "GeneralExpense", "GeneralExpenses", new { expenseID = ObjectInstanceController.ITCOMMUNICATIONS }, null)</h4>
+        <div style="height:50px;"></div>
+
+    </div>
+
+    <div class="col-lg-6">
+        <h2>Revenues</h2>
+        <hr />
+        <h4>@Html.ActionLink("All Revenues", "ListAll", "Revenues")</h4>
+        <h4>@Html.ActionLink("Revenue Summary", "Index", "Revenues")</h4>
+        <div style="height:50px;"></div>
+    </div>
+
+    <div class="col-lg-6">
+        <h2>Program Budget</h2>
+        <hr />
+        <h4>@Html.ActionLink("Summary", "ProgramBudget", "ProgramBudget")</h4>
+        <h4>@Html.ActionLink("Counselling", "Counselling", "ProgramBudget")</h4>
+        <h4>@Html.ActionLink("Training", "Training", "ProgramBudget")</h4>
+        <h4>@Html.ActionLink("Family Violence", "FamilyViolence", "ProgramBudget")</h4>
+        <h4>@Html.ActionLink("RCMen", "RCMen", "ProgramBudget") </h4>
+        <h4>@Html.ActionLink("RCWomen", "RCWomen", "ProgramBudget") </h4>
+        <h4>@Html.ActionLink("YNA", "YNA", "ProgramBudget") </h4>
+        <h4>@Html.ActionLink("TFTB", "TFTB", "ProgramBudget") </h4>
+        <div style="height:50px;"></div>
+    </div>
+</div>
+

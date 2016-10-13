@@ -1,0 +1,48 @@
+﻿@model Application.ViewModels.DataTable
+
+<h4>@Model.tableName</h4>
+
+<table class="table">
+    @{
+        @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+
+        @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+        foreach (var item in Model.dataList)
+        {
+
+            <tr id='@item.SourceID'>
+                @{
+                    <td class="name">
+                        @item.Name
+                    </td>
+                    var count = 1;
+
+                    if (item.Values != null)
+                    {
+                        <td class="total"></td>
+                        foreach (var x in item.Values)
+                        {
+                            var text = "";
+                            if (x != 0)
+                            {
+                                text = x.ToString();
+                            }
+                            var column = "data col" + count;
+                            <td class="@column">@text</td>
+                            count++;
+
+                        }
+                    }
+                }
+            </tr>
+
+
+                    }
+
+    }
+    @Html.Partial("~/Views/Shared/_TableSum.cshtml")
+
+
+
+
+</table>

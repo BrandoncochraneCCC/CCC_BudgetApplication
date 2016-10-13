@@ -1,0 +1,12 @@
+﻿@model List<Application.ViewModels.AmortizationViewModel>
+
+@{
+    ViewBag.Title = "Amortization";
+}
+
+<h2>@Html.ActionLink("Capital Assets Continuity Schedule", "AmortizationCost", "Amortization")</h2>
+
+@Html.Partial("~/Views/Amortization/_Cost.cshtml", Model)
+@Html.Partial("~/Views/Amortization/_Accumulated.cshtml", Model)
+@Html.Partial("~/Views/Amortization/_Additions.cshtml", Model)
+@Html.Partial("~/Views/Amortization/_AmortizatioNCalendar.cshtml", Model)

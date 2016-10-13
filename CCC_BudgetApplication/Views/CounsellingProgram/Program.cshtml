@@ -1,0 +1,51 @@
+﻿@model List<Application.ViewModels.ProgramViewModel>
+@{
+    ViewBag.Title = "Program";
+}
+
+<h2>@Html.ActionLink("Programs", "Index", "Counselling")</h2>
+<hr />
+@{
+    foreach (var item in Model)
+    {
+        <div class="group">
+            <h4>@Html.ActionLink(@item.Name, "IndividualProgram", "CounsellingProgram", new { ID = item.SourceID }, null)</h4>
+            <table class="table" style="width:20%; clear:both;">
+                <tr>
+                    <th>Total No. Facilitators</th>
+                    <th>Total No. Programs</th>
+                </tr>
+                <tr>
+                    <td>@item.NumberFacilitators</td>
+                    <td>@item.NumberOfPrograms</td>
+                </tr>
+            </table>
+            @if (item.Hours != null)
+            {
+                @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+                @Html.Partial("~/Views/CounsellingProgram/Data/_SectionHourTable.cshtml", item.Hours)
+            }
+            @if (item.FacilitatorHours != null)
+            {
+                @Html.Partial("~/Views/CounsellingProgram/Data/_FacilitatorTable.cshtml", item.FacilitatorHours)
+                @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+            }
+            @if (item.Groups != null)
+            {
+                @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+                @Html.Partial("~/Views/CounsellingProgram/Data/_GroupDataTable.cshtml", item.Groups)
+                @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+            }
+            else
+            {
+                <h5>create group</h5>
+            }
+
+            <br />
+
+        </div>
+
+
+    }
+}
+

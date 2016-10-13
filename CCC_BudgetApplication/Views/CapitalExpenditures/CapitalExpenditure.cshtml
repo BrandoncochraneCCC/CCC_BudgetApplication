@@ -1,0 +1,49 @@
+﻿@model List<Application.ViewModels.DataTable>
+
+@{
+    ViewBag.Title = "Capital Items";
+}
+
+
+@{
+    foreach (var table in Model)
+    {
+        <h2>@Html.ActionLink(table.tableName, "CapitalExpenditure", "CapitalExpenditures")</h2>
+
+        <table class="table">
+            @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+            @foreach (var item in table.dataList)
+            {
+                <tr>
+                    @if (item.hasChildren)
+                    {
+                        <td class="name" id="@item.SourceID">@Html.ActionLink(item.Name, item.Action, item.Controller, new { id = item.SourceID }, null)</td>
+                    }
+                    else
+                    {
+                        <td class="name editable" id="@item.SourceID">@item.Name</td>
+                    }
+                    <td class="total"></td>
+
+                    @{
+                        var tCount = 1;
+                        foreach (var x in item.Values)
+                        {
+                            var text = "";
+                            if (x != 0)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            var column = "data col" + tCount;
+                            <td class="@column">@text</td>
+                            tCount++;
+                        }
+                    }
+                </tr>
+                        }
+            @Html.Partial("~/Views/Shared/_Tablesum.cshtml")
+
+
+        </table>    }
+
+}

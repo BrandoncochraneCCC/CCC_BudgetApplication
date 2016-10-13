@@ -1,0 +1,43 @@
+﻿@model List<Application.ViewModels.AmortizationViewModel>
+
+<br />
+<h4>Costs</h4>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Balance Dec @{var yr = ViewBag.Year - 1; @yr}</th>
+        <th>Additions</th>
+        <th>Disposals</th>
+        <th>Balance @ViewBag.Year</th>
+        <th>Rate</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="@item.ViewClass">
+            <td>@Html.ActionLink(@item.Name, "AmortizationCost", "Amortization", new { poolID = item.SourceID }, null)</td>
+            <td>@String.Format("{0:C0}", item.PoolBalance)</td>
+            <td>@String.Format("{0:C0}", item.AdditionValue)</td>
+            <td>@String.Format("{0:C0}", item.DisposalValue)</td>
+            <td>@{
+                var x = item.PoolBalance + item.AdditionValue - item.DisposalValue;
+               @String.Format("{0:C0}", x)
+            }
+            </td>
+            @{
+                string str = "";
+                if (item.StraightLine)
+                {
+                    str = @String.Format("{0:0}", item.Rate);
+                    str = str + " months SL";
+
+                }
+                else
+                {
+                    str = @String.Format("{0:p2}", (item.Rate / 100));
+                }
+                <td>@str</td>
+            }
+            
+        </tr>
+    }
+</table>

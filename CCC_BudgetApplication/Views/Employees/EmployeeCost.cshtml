@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Application.ViewModels.DataTable>
+
+@{
+    ViewBag.Title = "EmployeeCosts";
+}
+
+<h2>@Html.ActionLink("Total Employee Costs", "ServiceExpenseSummary", "ServiceExpense", new { }, null)</h2>
+<hr />
+
+@{
+    foreach (var table in Model)
+    {       
+        <table class="table">
+            @foreach(var item in table.dataList)
+            {
+                if(item.headerLine != null)
+                {
+                    <tr>
+                        <th></th>
+                        <th>Total Cost</th>
+                        @foreach(var data in item.headerLine)
+                        {
+                            <th>@Html.ActionLink(data.SourceName, data.Action, data.Controller, new { departmentID = data.SourceID}, null )</th>
+                        }
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        @if (item.hasChildren)
+                        {
+                            <td class="name">@Html.ActionLink(item.Name, item.Action, item.Controller, new { expenseID = item.SourceID }, null)</td>
+                        }
+                        else
+                        {
+                            <td class="name">@item.Name</td>
+                        }
+                        <td class="total"></td>
+
+                        @{
+                            var tCount = 1;
+                            foreach (var x in item.Values)
+                            {
+                                var text = "";
+                                if (x > 0)
+                                {
+                                    text = String.Format("{0:0}", x);
+                                }
+                                var column = "data col" + tCount;
+                                <td class="@column">@text</td>
+                                tCount++;
+                            }
+                        }
+                    </tr>
+                                }
+                            }
+        </table>
+        <br />
+    }
+
+}
+
+
+
+
+

@@ -1,0 +1,35 @@
+﻿@model List<Application.Models.EmployeeRaise>
+
+
+<h4>Raise History</h4>
+<table class="table">
+
+
+    <tr>
+        <th>Date</th>
+        <th>Value</th>
+        <th>Percent</th>
+        <th>Old Salary</th>
+        <th>New Salary</th>
+    </tr>
+    @foreach (var raise in Model)
+            {
+
+        <tr>
+            <td class="date">@Html.DisplayFor(model => raise.Date)</td>
+
+            @if (raise.isPercent)
+            {
+                <td class="data">@String.Format("{0:p1}", raise.Value / 100)</td>
+                <td><input type="checkbox" class="checkbox" checked="checked" disabled="disabled" /></td>
+            }
+            else
+            {
+                <td class="data">@Html.DisplayFor(model => raise.Value)</td>
+                <td> <input type="checkbox" class="checkbox" disabled="disabled" /></td>
+            }
+            <td class="data">@Html.DisplayFor(model => raise.OldSalary)</td>
+            <td class="data">@Html.DisplayFor(model => raise.NewSalary)</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,52 @@
+﻿@model IQueryable<Application.Models.Addition>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Addition</h4>
+    <hr />
+
+    @foreach (var item in Model)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => item.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.Value)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.Value)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.Amortization.AmortizationID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.Amortization.AmortizationID)
+            </dd>
+
+        </dl>
+    }
+   
+</div>
+

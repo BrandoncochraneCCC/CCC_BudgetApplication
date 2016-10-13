@@ -1,0 +1,34 @@
+﻿@model Application.ViewModels.DataLine
+
+<tr id='@Model.SourceID' class="@Model.viewClass">
+    @{
+        <td class="name">
+            @if (Model.Controller == null)
+            {
+                @Model.Name
+            }
+            else
+            {
+                @Html.ActionLink(Model.Name, Model.Action, Model.Controller, new { employeeID = Model.SourceID, year = Model.year }, null)
+            }
+        </td>
+        var count = 1;
+
+        if (Model.Values != null)
+        {
+            <td class="total"></td>
+            foreach (var x in Model.Values)
+            {
+                var text = "";
+                if (x != 0)
+                {
+                    text = x.ToString();
+                }
+                var column = "data subTotalCol" + count;
+                <td class="@column">@text</td>
+                count++;
+
+            }
+        }
+    }
+</tr>

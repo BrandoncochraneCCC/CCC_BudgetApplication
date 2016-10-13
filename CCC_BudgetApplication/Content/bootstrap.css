@@ -4154,6 +4154,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
     margin-left: 0;
   }
+
 }
 
 .navbar-static-top {
@@ -4240,6 +4241,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-nav {
   margin: 7.5px -15px;
+  width: auto;
 }
 
 .navbar-nav > li > a {

@@ -1,0 +1,33 @@
+﻿@model Application.ViewModels.AdminFormModel
+
+<div class="container" id="counselling">
+    <h4>Counselling Data</h4>
+    <div class="section col-md-12" id="programs">
+        Programs:
+        <div class="col-md-2">
+            @Html.DropDownListFor(m => Model.List1, Model.List1)
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <form action="programs" method="post">
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => Model.List2, Model.List2, new { @class = "form-control", @name = "list"} )
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+
+                    </div>
+                    @for (var i = 0; i < Model.numTextBox; i++)
+                    {
+                        <div class="col-md-2">@Html.TextBox("value" + i, "value") </div>
+                    }
+                    <div class="col-md-1">
+                        <input type="submit" name="programs" value="save" class="btn btn-default" style="padding:0;" />
+                    </div>
+                </form>
+            </div>
+        }
+
+    </div>
+</div>
+<hr />

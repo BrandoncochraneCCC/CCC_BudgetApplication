@@ -1,0 +1,14 @@
+﻿@model Application.ViewModels.TopLevelSummary
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Budget Top Level Summary</h2>
+
+@Html.Partial("~/Views/Revenues/_Summary.cshtml", Model.Revenue)
+<br />
+@Html.Partial("~/Views/ServiceExpense/_Summary.cshtml", Model.Service)
+<br />
+@Html.Partial("~/Views/GeneralExpenses/_Summary.cshtml", Model.General)
+<br />
+@Html.Partial("~/Views/Shared/_TotalsTable.cshtml", Model.totals)

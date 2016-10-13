@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4a1a2659-58b4-4bee-82e2-469baa46b2dd" ChangeDateTime="07/21/2016 19:45:46">
+    <Property Name="ElementName" Value="[dbo].[EmployeeTarget].[TargetHours]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[EmployeeTarget]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Hour" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dcca24be-4f87-43ea-b9bf-9645ea91e31c" ChangeDateTime="09/07/2016 16:38:27">
+    <Property Name="ElementName" Value="[dbo].[UserBuiltSummaryData].[Row]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserBuiltSummaryData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="140581db-9db6-4ca8-9b87-2557d93acef8" ChangeDateTime="09/07/2016 16:48:41">
+    <Property Name="ElementName" Value="[dbo].[UserBuiltSummaryData].[isRevenue]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserBuiltSummaryData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CatergoryID" />
+  </Operation>
+</Operations>

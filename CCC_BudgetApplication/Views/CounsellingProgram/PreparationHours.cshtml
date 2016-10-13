@@ -1,0 +1,30 @@
+﻿@model List<Application.ViewModels.DataTable>
+@{
+    ViewBag.Title = "CounsellingHours";
+}
+<h2> @Html.ActionLink("Total Counselling Preparation Hours", "Index", "Counselling")</h2>
+<hr />
+@{
+    foreach (var item in Model)
+    {
+        <h4>
+            @if (item.tableName != null && item.tableName != "")
+            {
+                @Html.ActionLink(item.tableName, "PreparationHours", "CounsellingProgram", new { ID = item.sourceID }, null)
+
+            }
+            else
+            {
+                @item.tableName
+            }
+        </h4>
+        <table class="table">
+
+            @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+            @Html.Partial("~/Views/Shared/_DataTable.cshtml", item)
+            @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+        </table>
+        <br />
+
+    }
+}

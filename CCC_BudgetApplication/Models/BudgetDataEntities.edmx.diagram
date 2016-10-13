@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7609349a1277400e890379914d298000" Name="Diagram1">
+        <EntityTypeShape EntityType="BudgetDataModel.C__RefactorLog" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Account" Width="1.5" PointX="11.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ActualData" Width="1.5" PointX="10" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ActualValue" Width="1.5" PointX="7.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Addition" Width="1.5" PointX="21.5" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Airfare" Width="1.5" PointX="18.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Amortization" Width="1.5" PointX="16.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.AspNetRole" Width="1.5" PointX="7.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.AspNetUser" Width="1.5" PointX="10" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.AverageRate" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.BenefitData" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.BugReport" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Bursary" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CapitalExpenditure" Width="1.5" PointX="16.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CapitalExpenditureComparison" Width="1.5" PointX="18.5" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CapitalExpenditureData" Width="1.5" PointX="18.5" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Category" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ChangeLog" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CompanyGasMileage" Width="1.5" PointX="15.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CompanyGasMileageData" Width="1.5" PointX="18" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Conference" Width="1.5" PointX="16.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ContractHour" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CounsellingGroupType" Width="1.5" PointX="13.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CounsellingService" Width="1.5" PointX="10.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.CounsellingServiceData" Width="1.5" PointX="13" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.DeductionList" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.DeductionType" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.DeferredAmortization" Width="1.5" PointX="16.25" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Department" Width="1.5" PointX="0.75" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Disposal" Width="1.5" PointX="21.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Employee" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeBonu" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeDeduction" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeLeave" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeRaise" Width="1.5" PointX="5.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeTarget" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.EmployeeType" Width="1.5" PointX="0.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ExistingHardware" Width="1.5" PointX="16.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GAExpense" Width="1.5" PointX="16.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GAExpenseComparison" Width="1.5" PointX="16.25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GAGroup" Width="1.5" PointX="14" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GasMileage" Width="1.5" PointX="18.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Group" Width="1.5" PointX="20.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GroupTherapyTarget" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GroupTherapyTarget1" Width="1.5" PointX="5.25" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.GSTRejection" Width="1.5" PointX="21.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Hotel" Width="1.5" PointX="18.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.HoursPerYear" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.InternTarget" Width="1.5" PointX="5.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.LockedYear" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Log" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.MealEntertainment" Width="1.5" PointX="18.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.MiscTravel" Width="1.5" PointX="18.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.MonthlyGroup" Width="1.5" PointX="22.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.NonRevenueHour" Width="1.5" PointX="7.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.NonRevenueHourData" Width="1.5" PointX="9.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Pool" Width="1.5" PointX="14" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Program" Width="1.5" PointX="16" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ProgramSection" Width="1.5" PointX="18.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ProjectedFeePerHour" Width="1.5" PointX="3" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ResidentTarget" Width="1.5" PointX="5.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Revenue" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.RevenueComparison" Width="1.5" PointX="11" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.RevenueData" Width="1.5" PointX="11" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Salary" Width="1.5" PointX="5.25" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.SectionRevenueHour" Width="1.5" PointX="20.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ServiceExpense" Width="1.5" PointX="14" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ServiceExpenseComparison" Width="1.5" PointX="16.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.ServiceExpenseData" Width="1.5" PointX="16.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.TargetData" Width="1.5" PointX="7.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.UnchangingValue" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.UserBuiltSummary" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.UserBuiltSummaryData" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.Vendor" Width="1.5" PointX="5.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.VendorRecord" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudgetDataModel.WorkDay" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="BudgetDataModel.FK_GAExpense_Account_AccountNum" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GAGroup_Account_AccountNum" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Pool_Account_AccountNum" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ServiceExpense_Account_AccountNum" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ActualData_ActualValue_ActualValueID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Addition_Amortization_AmortizationID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Addition_DeferredAmortization_DeferredAmortizationID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Airfare_Conference_ConferenceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Amortization_Pool_PoolID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Disposal_Amortization_AmortizationID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_AverageRate_EmployeeType_EmployeeTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Bursary_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CapitalExpenditure_CapitalExpenditureID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CapitalExpenditure_Pool_PoolID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CapitalExpenditureComparison_CapitalExpenditure_CapitalExpenditureID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CapitalExpenditureData_CapitalExpenditureDataID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Category_Category_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Category_Catergory_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CompanyGasMileageData_CompanygasMileage_CompanyGasMileageID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Conference_GAGroup_GAGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GasMileage_Conference_ConferenceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Hotel_Conference_ConferenceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_MealEntertainment_Conference_ConferenceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_MiscTravel_Conference_ConferenceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ContractHour_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.Program_CounsellingGroupType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_CounsellingServiceData_CounsellingService_CounsellingServiceID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_DeductionList_DeductionType_DeductionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_EmployeeBenefits_DeductionType_DeductionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_DeferredAmortization_Pool_PoolID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Disposal_DeferredAmortization_DeferredAmortizationID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Department_DepartmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ServiceExpense_Department_DepartmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Bonus_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_EmployeeBenefits_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_EmployeeTarget_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_EmployeeType_TypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GroupTherapyTarget_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GroupTherapyTargets_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_InternTarget_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Leave_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Raise_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ResidentTarget_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Salary_Employee_EmployeeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_TargetData_EmployeeTarget_EmployeeTargetID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.AssumptionProjectedFeePerHour_EmployeeType_EmployeeTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ExistingHardware_GAGroup_GAGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GAExpense_Group_GroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.GAExpenseComparison_GAGroup_GAGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_GAGroup_GAGroup_GroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.GSTRejection_GAGroup_GAGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Group_ProgramSection_ProgramSectionID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_MonthlyGroup_Group_GroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.GSTRejection_ServiceExpense_ServiceExpenseID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_NonRevenueHourData_NonRevenueHour_NonRevenueHourID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_NonRevenueData_TargetData_TargetDataID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_programSection_Program_ProgramID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_SectionRevenueHours_ProgramSection_ProgramSectionID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_dbo_Revenue_dbo_Revenue_RevenueID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_Revenue_RevenueID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.RevenueComparison_Revenue_RevenueID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ServiceExpense_ServiceExpenseID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_ServiceExpenseData_ServiceExpense_ServiceExpenseID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.ServiceExpenseComparison_ServiceExpense_ServiceExpenseID" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_UserBuiltSummary_UserBuiltSummary_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.FK_UserBuiltSummaryData_UserBuiltSummary_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BudgetDataModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

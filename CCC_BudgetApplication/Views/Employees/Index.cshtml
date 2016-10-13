@@ -1,0 +1,83 @@
+﻿@model PagedList.IPagedList<Application.Models.Employee>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Employees";
+}
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/EmployeesScript.js")"></script>
+<div class="container">
+
+    <h2>Employees</h2>
+    <div class="col-lg-2">@Html.ActionLink("Create New", "Create")</div>
+    @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+    {
+        <div class="col-lg-4" style="float:right;">
+            <div class="col-lg-8" style="margin-top:2px;">@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)</div>
+            <p class="col-lg-4">
+                <input type="submit" value="Search" style="text-align:center; padding-right:3px; margin:0;" />
+            </p>
+        </div>
+    }
+    <table class="table">
+        <tr class="fixedElement top" style="width:100%; background-color:#f7f7f7;">
+            <th>
+                @if (ViewBag.CurrentSort == "lastname_desc" || ViewBag.CurrentSort == "lastname")
+                {
+                    @Html.ActionLink("Last Name, ", "Index", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+
+                }
+                else
+                {
+                    @Html.ActionLink("First Name ", "Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+                }
+
+
+            </th>
+            <th>
+                @Html.ActionLink("Department", "Index", new { sortOrder = ViewBag.DeptSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("Type", "Index", new { sortOrder = ViewBag.TypeSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.StartSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.EndSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+        </tr>
+    </table>
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (ViewBag.CurrentSort == "lastname_desc" || ViewBag.CurrentSort == "lastname")
+                {
+                    <td class="col-lg-2" id="@item.EmployeeID">@Html.ActionLink(item.LastName + ", " + item.FirstName, "Edit", "Employees", new { id = item.EmployeeID }, null)</td>
+                }
+                else
+                {
+                    <td class="col-lg-2" id="@item.EmployeeID">@Html.ActionLink(item.FirstName + " " + item.LastName, "Edit", "Employees", new { id = item.EmployeeID }, null)</td>
+                }
+
+                <td class="col-lg-2">@Html.DisplayFor(modelItem => item.Department.Name)</td>
+                <td class="col-lg-2">@Html.DisplayFor(modelItem => item.EmployeeType.Name)</td>
+                <td class="col-lg-2">@item.StartDate</td>
+                <td class="col-lg-2">@item.EndDate</td>
+            </tr>
+        }
+
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

@@ -1,0 +1,20 @@
+﻿@model Application.ViewModels.DataTable
+
+
+@foreach (var item in Model.dataList)
+{
+    if (item.viewClass == "hourSubTotal")
+    {
+        @Html.Partial("~/Views/Shared/_hourSubTotal.cshtml", item)
+    }
+    else if (item.viewClass == "subTotal")
+    {
+        @Html.Partial("~/Views/Shared/_SubTotal.cshtml", item)
+    }
+    else
+    {
+        @Html.Partial("~/Views/Shared/_TableData.cshtml", item)
+    }
+
+
+}

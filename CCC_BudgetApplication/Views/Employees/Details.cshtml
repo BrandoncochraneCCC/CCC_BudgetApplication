@@ -1,0 +1,57 @@
+﻿@model Application.ViewModels.EmployeeView
+
+@{
+    ViewBag.Title = "Details";
+}
+<script src="~/Scripts/waypoint/lib/noframework.waypoints.min.js"></script>
+
+<h2>Employee Details</h2>
+<hr />
+
+@{
+<table class="table fixedElement top" style="width:100%;">
+    <tr class="">
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+</table>
+
+    foreach (var item in Model.EmployeeList)
+    {
+        <h4>@Html.ActionLink(item.Department.Name, "DepartmentSummary", "Employees", new { year = item.Year, departmentID = item.Department.DepartmentID }, null)</h4>
+        <table class="table">
+            
+            @foreach (var data in item.Employees)
+            {
+                var hasSalary = "";
+                var salary = data.Salaries.Where(s => s.Year == item.Year).Select(s => s.CurrentBudget).FirstOrDefault();
+                if (salary == null || salary == 0)
+                {
+                    hasSalary = "style=background:#eee;";
+
+                }
+                <tr @hasSalary>
+                    @{
+                        var name = data.FirstName + " " + data.LastName;
+                        <td class="col-lg-2">@Html.ActionLink(@name, "EmployeeData", "Employees", new { ID = data.EmployeeID }, null)</td>
+                        <td class="col-lg-2">@Html.DisplayFor(model => data.Department.Name)</td>
+                        <td class="col-lg-2">@Html.DisplayFor(model => data.EmployeeType.Name)</td>
+                        <td class="col-lg-2">@Html.DisplayFor(model => data.StartDate, "{MM/dd/yyyy}")</td>
+                        <td class="col-lg-2">@Html.DisplayFor(model => data.EndDate)</td>
+
+                        }
+                </tr>
+                        }
+
+            </table>
+                        }
+                        if (Model.Interns != null && Model.Interns.dataList.Count() != 0)
+                        {
+                            <h4 id="waypoint">@Html.ActionLink("Interns/Volunteers", "Intern", "Employees", new { }, null)</h4>
+
+                            @Html.Partial("~/views/Employees/Data/InternPartial.cshtml", Model.Interns)
+                        }
+}

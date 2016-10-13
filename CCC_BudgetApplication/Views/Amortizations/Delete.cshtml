@@ -1,0 +1,56 @@
+﻿@model Application.Models.Amortization
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Amortization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PoolBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoolBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccumulatedAmortization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccumulatedAmortization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pool.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pool.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

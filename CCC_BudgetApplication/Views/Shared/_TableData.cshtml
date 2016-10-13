@@ -1,0 +1,49 @@
+﻿@model Application.ViewModels.DataLine
+@{
+    var viewClass = "";
+    if(Model.viewClass != null)
+    {
+        viewClass = Model.viewClass;
+    }
+         <tr id='@Model.SourceID' class="@viewClass ">
+            @{
+                <td class="name">
+                    @if (Model.Controller == null)
+                    {
+                        @Model.Name
+                    }
+                    else
+                    {
+                        @Html.ActionLink(Model.Name, Model.Action, Model.Controller, new { ID = Model.SourceID, year = Model.year }, null)
+                    }
+                </td>
+                var count = 1;
+
+                if (Model.Values != null)
+                {
+                    <td class="total"></td>
+                    foreach (var x in Model.Values)
+                    {
+                        var text = "";
+                        if (x != 0)
+                        {
+                            text = String.Format("{0:0}", x);
+
+                        }
+                        var column = "data col" + count;
+
+                        if (Model.viewClass != null)
+                        {
+                            column = Model.viewClass + count + " " + column;
+                        }
+                        <td class="@column">@text</td>
+                        count++;
+
+                    }
+                }
+            }
+        </tr>       
+        
+}
+
+

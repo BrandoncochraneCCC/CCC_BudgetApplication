@@ -1,0 +1,62 @@
+﻿@model Application.ViewModels.employeeData.EmployeeBenefits
+
+<h4 style="float:left;">@Model.BenefitTable.tableName</h4><p style="float:right;">No Benefits @Html.RadioButtonFor(m => m.deductionID, "none")</p>
+<script>
+    $(document).ready(function () {
+        $('#deductionID').change(function () {
+        $('#txtValue').val($(this).val());
+        });
+    });
+</script>
+<table class="table benefit">
+    <tr>
+        @if (Model.hasFamily)
+        {
+            <th>Family @Html.RadioButtonFor( m => m.deductionID, "family", new { @checked = Model.hasFamily })</th>
+            <th>Individual @Html.RadioButtonFor(m => m.deductionID, "individual")</th>
+        }
+        else if (Model.hasIndividual)
+        {
+            <th>Family @Html.RadioButtonFor(m => m.deductionID, "family")</th>
+            <th>Individual @Html.RadioButtonFor(m => m.deductionID, "individual", new { @checked = Model.hasFamily })</th>
+        }
+        else
+        {
+            <th>Family @Html.RadioButtonFor(m => m.deductionID, "family")</th>
+            <th>Individual @Html.RadioButtonFor(m => m.deductionID, "individual")</th>
+        }
+
+        <th>STD @Html.CheckBoxFor(m => Model.hasSTD, Model.hasSTD)</th>
+        <th>Vacation @Html.CheckBoxFor(m => Model.hasVacation, Model.hasVacation)</th>
+    </tr>
+    <tr>
+        <td id="family">
+            @if (Model.family != null)
+            {
+                    @Html.DropDownListFor(m => Model.deductionID, Model.family)
+            }
+        </td>
+        <td id="individual">
+            @if (Model.individual != null)
+            {
+                    @Html.DropDownListFor(m => Model.deductionID, Model.individual)             
+
+            }
+        </td>
+        <td id="std">
+            @if (Model.std != null)
+            {
+
+                    @Html.DropDownListFor(m => Model.BenefitTable, Model.std)
+
+            }
+        </td>
+        <td id="vacation">
+            @if (Model.vacation != null)
+            { 
+                    @Html.DropDownListFor(m => Model.BenefitTable, Model.vacation)
+
+            }
+        </td>
+    </tr>
+</table>

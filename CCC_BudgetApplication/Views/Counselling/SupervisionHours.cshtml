@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Application.ViewModels.DataTable>
+
+
+@{
+    ViewBag.Title = "EmployeeCounsellingHours";
+}
+
+<h2>@Html.ActionLink("Supervision Hours", "Index", "Counselling")</h2>
+<hr />
+
+
+@{
+    var fee = Model.FirstOrDefault();
+
+    <table class="table">
+
+        @foreach (var table in Model)
+        {
+            @Html.Partial("~/Views/Shared/_TableName.cshtml", table)
+
+            if (table == fee)
+            {
+                if (table.dataList != null)
+                {
+                    var row = table.dataList.FirstOrDefault();
+                    var value = String.Format("{0:C0}", row.Values[0]);
+                    <tr class="@row.SourceID"> <th>@row.Name</th><td class="data">@Html.EditorFor(m => value)</td></tr>
+                }
+
+            }
+            else
+            {
+
+                @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml", table.tableName)
+                @Html.Partial("~/Views/Shared/_DataTable.cshtml", table)
+                @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+            }
+
+
+        }
+    </table>
+
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/subtotal.js")"></script>

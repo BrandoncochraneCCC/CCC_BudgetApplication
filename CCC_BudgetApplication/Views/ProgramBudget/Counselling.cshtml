@@ -1,0 +1,75 @@
+﻿@model Application.ViewModels.ResourceAllocation
+@{
+    ViewBag.Title = "Counselling";
+}
+
+<h2>Counselling</h2>
+
+@{
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="col-lg-5">
+                <div class="col-lg-8">Percentage of Resources Allocated</div>
+                <div class="col-lg-4">@Html.EditorFor(m => Model.Percentage)</div>
+            </div>
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-3">
+                <div class="col-lg-6">Grand Total</div>
+                <div class="col-lg-2">@Html.DisplayFor(m => Model.Total)</div>
+            </div>
+            <div class="col-lg-3"></div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+                <h4>Revenues</h4>
+                <table class="table">
+                    @foreach (var item in Model.Revenues)
+                    {
+                        <tr class="@item.viewClass">
+                            <th class="col-lg-4">@Html.DisplayFor(m => item.name)</th>
+                            <td class="col-lg-4">
+                                @if (item.value != 0)
+                                {
+                                    @Html.DisplayFor(m => item.value)
+                                }
+                            </td>
+                            <td class="col-lg-4">
+                                @if (item.percent != 0)
+                                {
+                                    @Html.DisplayFor(m => item.percent)
+                                }
+                            </td>
+                        </tr>
+                    }
+                </table>
+        </div>
+        <br />
+        <div class="col-lg-offset-2 col-lg-8 ">
+            <h4>Expenses</h4>
+            <table class="table">
+                @foreach (var item in Model.Expenses)
+                {
+                    <tr class="@item.viewClass"> 
+                        <th class="col-lg-4">@Html.DisplayFor(m => item.name)</th>
+                        <td class="col-lg-3">
+                            @if (item.value != 0)
+                            {
+                                @Html.DisplayFor(m => item.value)
+                            }
+                        </td>
+                        <td class="col-lg-3">
+                            @if (item.percent != 0)
+                            {
+                                @Html.DisplayFor(m => item.percent)
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        </div>
+
+}

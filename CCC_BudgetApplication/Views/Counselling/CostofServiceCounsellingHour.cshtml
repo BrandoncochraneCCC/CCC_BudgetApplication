@@ -1,0 +1,97 @@
+﻿@model List<Application.ViewModels.CostOfServiceViewModel>
+@{
+    ViewBag.Title = "CostofServiceCounsellingHour";
+}
+
+<h2>@Html.ActionLink("Cost of Service Counselling Hours", "Index", "Counselling")</h2>
+
+@{
+    <div class="col-lg-12 weighted_avg">
+        <table class="table">
+            <tr>
+                <th>Weighted Average Cost per Hour per Counsellor</th>
+                <td>@Html.DisplayFor(m => Model.LastOrDefault().weighted)</td>
+            </tr>
+        </table>
+    </div>
+    <table class="table">
+        <tr class="fixedElement">
+            <th></th>
+            <th>Total hours billed</th>
+            <th>Cost per hour</th>
+            <th>Annual cost</th>
+            <th>Counselling</th>
+            <th>Groups</th>
+            <th>Supervising</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th><h4>@item.name</h4></th>
+            </tr>
+
+            if (item.data != null)
+            {
+                foreach (var d in item.data)
+                {
+                    <tr class="@d.SourceID">
+                        @if (d.SourceID != 0)
+                        {
+                            <td class="name">@Html.ActionLink(d.Name, "EmployeeData", "Employees", new { ID = d.SourceID }, null)</td>
+                        }
+                        else
+                        {
+                            <td>@d.Name</td>
+                        }
+                        <td>@Html.DisplayFor(x => d.TotalHoursBilled)</td>
+                        <td>@Html.DisplayFor(x => d.CostPerHour)</td>
+                        <td>@Html.DisplayFor(x => d.AnnualCost)</td>
+                        <td>@Html.DisplayFor(x => d.Counselling)</td>
+                        <td>@Html.DisplayFor(x => d.Groups)</td>
+                        <td>@Html.DisplayFor(x => d.Supervising)</td>
+                    </tr>
+                }
+            }
+
+
+            if (item.total != null)
+            {
+                <tr class="highlight">
+                    <td class="name">@item.total.Name </td>
+                    <td>@Html.DisplayFor(x => item.total.TotalHoursBilled)</td>
+                    <td>@Html.DisplayFor(x => item.total.CostPerHour)</td>
+                    <td>@Html.DisplayFor(x => item.total.AnnualCost)</td>
+                    <td>@Html.DisplayFor(x => item.total.Counselling)</td>
+                    <td>@Html.DisplayFor(x => item.total.Groups)</td>
+                    <td>@Html.DisplayFor(x => item.total.Supervising)</td>
+
+                </tr>
+            }
+
+            if (item.percentTotal != null)
+            {
+                var total = String.Format("{0:p2}", item.percentTotal.TotalHoursBilled);
+                var CostPerHour = String.Format("{0:p2}", item.percentTotal.CostPerHour);
+                var AnnualCost = String.Format("{0:p2}", item.percentTotal.AnnualCost);
+                var Counselling = String.Format("{0:p2}", item.percentTotal.Counselling);
+                var Groups = String.Format("{0:p2}", item.percentTotal.Groups);
+                var Supervising = String.Format("{0:p2}", item.percentTotal.Supervising);
+
+                <tr class="highlight">
+                    <td class="name">@item.percentTotal.Name </td>
+                    <td>@Html.DisplayFor(x => total)</td>
+                    <td>@Html.DisplayFor(x => CostPerHour)</td>
+                    <td>@Html.DisplayFor(x => AnnualCost)</td>
+                    <td>@Html.DisplayFor(x => Counselling)</td>
+                    <td>@Html.DisplayFor(x => Groups)</td>
+                    <td>@Html.DisplayFor(x => Supervising)</td>
+
+                </tr>
+            }
+            <tr style="height:30px;"></tr>
+        }
+    </table>
+
+}
+

@@ -1,0 +1,26 @@
+﻿@model Application.ViewModels.DataTable
+
+<table class="table">
+    @foreach (var item in Model.dataList)
+            {
+        <tr class="hour">
+            <td class="name col-lg-2">@item.Name</td>
+            <td class="total"></td>
+
+            @{
+                var tCount = 1;
+                foreach (var x in item.Values)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + tCount + "col-lg-1";
+                    <td class="@column">@text</td>
+                    tCount++;
+                }
+            }
+        </tr>
+                }
+</table>

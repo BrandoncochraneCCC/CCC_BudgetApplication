@@ -1,0 +1,33 @@
+﻿<script type="text/javascript">
+     function Expand(obj){
+      if (!obj.savesize) obj.savesize=obj.size;
+      obj.size=Math.max(obj.savesize,obj.value.length);
+     }
+</script>
+
+@{
+    ViewBag.Title = "Empty";
+}
+<div class="container empty">
+    <h2><input class="text-box single-line" placeholder="Header" style="text-align:left;" /></h2>
+
+    <table class="table">
+        @Html.Partial("~/Views/Shared/_TableHeader.cshtml")
+        <tr>
+            <td class="name"><input class="text-box" style="width:200px;"/></td>
+            <td class="rTotal"><input class="text-box single-line" /></td>
+            <td class="data col1"><input class="text-box single-line" /></td>
+            <td class="data col2"><input class="text-box single-line" /></td>
+            <td class="data col3"><input class="text-box single-line" /></td>
+            <td class="data col4"><input class="text-box single-line" /></td>
+            <td class="data col5"><input class="text-box single-line" /></td>
+            <td class="data col6"><input class="text-box single-line" /></td>
+            <td class="data col7"><input class="text-box single-line" /></td>
+            <td class="data col8"><input class="text-box single-line" /></td>
+            <td class="data col9"><input class="text-box single-line" /></td>
+            <td class="data col10"><input class="text-box single-line" /></td>
+            <td class="data col11"><input class="text-box single-line" /></td>
+            <td class="data col12"><input class="text-box single-line" /></td>
+        </tr>
+    </table>
+</div>

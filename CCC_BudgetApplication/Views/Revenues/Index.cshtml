@@ -1,0 +1,13 @@
+﻿@model List<Application.ViewModels.DataTable>
+
+@{
+    ViewBag.Title = "Revenues";
+}
+
+@{
+    foreach (var table in Model)
+    {
+        @Html.Partial("~/Views/Revenues/_Summary.cshtml", table);
+    }
+}
+

@@ -1,0 +1,70 @@
+﻿@model Application.ViewModels.ExistingHardwareViewModel
+@{
+    ViewBag.Title = "ExistingHardware";
+}
+
+
+<h2>Existing Hardware @ViewBag.Year</h2>
+@{
+    var urlContent = "~/GeneralExpenses/ExpandExisting";
+    <div class="container" style="height:auto; overflow:auto;">
+        <h4>
+            <input class="existingHardware" type="button" value="Existing Servers" id="server"
+                   onclick="javascript: BtnOnclick(2, 'sPopUp');" />
+        </h4>
+        <div id="sPopUp" style="display:none">
+
+        </div>
+        <h4>
+            <input class="existingHardware" type="button" value="Existing PCs" id="pc"
+                   onclick="javascript:BtnOnclick(3, 'pPopUp');" />
+        </h4>
+        <div id="pPopUp" style="display:none">
+
+        </div>
+        <h4>
+            <input class="existingHardware" type="button" value="Existing Thin Clients" id="thin"
+                   onclick="javascript: BtnOnclick(4, 'tPopUp');" />
+        </h4>
+        <div id="tPopUp" style="display:none">
+
+        </div>
+        <h4>
+            <input class="existingHardware" type="button" value="Existing Other Hardware" id="other"
+                   onclick="javascript: BtnOnclick(5, 'oPopUp');" />
+        </h4>
+        <div id="oPopUp" style="display:none">
+
+        </div>
+    </div>
+    <div class="col-lg-12" style="overflow:auto;">
+        <div class="col-lg-offset-2 col-lg-2">
+            <table class="table">
+                <tr>
+                    <th>Amortization Total</th>
+                    <td>@Model.amortizationTotal</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+
+<script>
+    function BtnOnclick(value, pop) {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content(urlContent)',
+            data: {
+                ID: value,
+                popUp: pop
+            },
+            success: function (data) {
+                $('#' + pop).toggle();
+                $('#' + pop)[0].innerHTML = data;
+            }
+        });
+    }
+</script>
+    }

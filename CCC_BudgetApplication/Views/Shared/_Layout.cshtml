@@ -1,43 +1,126 @@
-﻿<!DOCTYPE html>
+﻿@using Application.Controllers
+<!DOCTYPE html>
+<style type="text/css">
+    #tf_hui_container {
+        display: none;
+    }
+</style>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Calgary Counselling Centre</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css")" rel="Stylesheet" type="text/css" />
+
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div id="content-container">
+
+        <jumbotron>
+            <a name="top-of-page" style="padding-top:50px;"></a>
+
+            <h1 style="text-align:center;"></h1>
+        </jumbotron>
+        <div class="navbar navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("CCC - Budget", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Top Level Summary", "Index", "TopLevelSummary")</li>
+                        <li>@Html.ActionLink("Revenues", "Index", "Revenues")</li>
+                        <li>@Html.ActionLink("Service Expenses", "ServiceExpenseSummary", "ServiceExpense")</li>
+                        <li>@Html.ActionLink("General Expenses", "GeneralExpenseSummary", "GeneralExpenses")</li>
+                        <li>@Html.ActionLink("Capital Items", "CapitalExpenditureSummary", "CapitalExpenditures")</li>
+                    </ul>
+                    @{
+                        <div class="col-lg-1">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle yearMenu" data-toggle="dropdown">@ViewBag.YEAR  <span class="caret"></span></button>
+                                <ul class="dropdown-menu scrollable-menu" role="menu" style="margin:-1px;">
+                                    <li>@Html.ActionLink("2012", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2012 }, null) </li>
+                                    <li>@Html.ActionLink("2013", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2013 }, null) </li>
+                                    <li>@Html.ActionLink("2014", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2014 }, null) </li>
+                                    <li>@Html.ActionLink("2015", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2015 }, null) </li>
+                                    <li>@Html.ActionLink("2016", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2016 }, null) </li>
+                                    <li>@Html.ActionLink("2017", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2017 }, null) </li>
+                                    <li>@Html.ActionLink("2018", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2018 }, null) </li>
+                                    <li>@Html.ActionLink("2019", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2019 }, null) </li>
+                                    <li>@Html.ActionLink("2020", "redirect", "ObjectInstance", new { url = @Request.RawUrl, year = 2020 }, null) </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
+            <a id="hideRightMenu" style="position:absolute; float:right; top:0px; right:0px; color:black; padding-right:3px; font-size:xx-small">toggle menu</a>
+
+        </div>
+        <div class="hideThis">
+            <div class="navbar-collapse collapse rightMenu">
+                <div class="container">
+                    <ul class="nav  navbar-nav">
+                        <li>@Html.ActionLink("Counselling", "Index", "Counselling")</li>
+                        <li>@Html.ActionLink("Residents", "Index", "Bursaries")</li>
+                        <li>@Html.ActionLink("Department Summary", "DepartmentSummary", "Employees")</li>
+                        <li>@Html.ActionLink("Employees", "Details", "Employees")</li>
+                        <li>@Html.ActionLink("Employee Targets", "Targets", "Employees")</li>
+                        <li>@Html.ActionLink("Interns", "Intern", "Employees")</li>
+
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+        <div class="container body-content">
+            @RenderBody()
+            <div id="view-tabs">
+                <ul class="tab-list">
+                    <li class="tab">
+                        <div class="hide-btn">Hide Data</div>
+                        <div class="show-btn">Show Data</div>
+                    </li>
+                    <li onclick="location.href = '#top-of-page'" class="tab">
+                        <div>To Top</div>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="bottom-line" />
+
+            <footer>
+
+                <p>
+                    &copy; @DateTime.Now.Year - Calgary Counselling Centre | 
+                    @Html.ActionLink("Page Index", "Index", "Index") |
+                    @Html.ActionLink("Change log", "Index", "ChangeLogs")
+                    <span style="float:right;">@Html.ActionLink("Report a bug", "Create", "BugReports" )</span>
+                    <span id="version">V.Development</span>
+
+                </p>
+            </footer>
+
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
+

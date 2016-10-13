@@ -1,0 +1,47 @@
+﻿@model List<Application.ViewModels.AmortizationViewModel>
+<h4>Accumulated Amortization</h4>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Provision</th>
+        <th>Jan</th>
+        <th>Feb</th>
+        <th>Mar</th>
+        <th>Apr</th>
+        <th>May</th>
+        <th>Jun</th>
+        <th>Jul</th>
+        <th>Aug</th>
+        <th>Sept</th>
+        <th>Oct</th>
+        <th>Nov</th>
+        <th>Dec</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="@item.SourceID @item.ViewClass">
+            <td>@item.Name</td>
+            <th>@String.Format("{0:C0}", item.Provision)</th>
+            @{
+                var count = 1;
+
+                if (item.Values != null)
+                {
+                    foreach (var x in item.Values)
+                    {
+                        var text = "";
+                        if (x != 0)
+                        {
+                            text = String.Format("{0:C0}", x);
+
+                        }
+                        var column = "data col" + count;
+                        <td class="@column">@text</td>
+                        count++;
+
+                    }
+                }
+            }
+        </tr>
+                }
+</table>

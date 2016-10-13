@@ -2,7 +2,9 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+#content-container{
+    min-height:100%;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -21,4 +23,339 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border: 1px solid #dddddd;
+}
+
+.highlight {
+    background: #eee;
+    font-weight: bold;
+}
+.div-table{
+    height:auto;
+    margin:0;
+    border: 1px solid gray;
+}
+
+
+.row{
+    margin:0px;
+    text-align:center;
+    overflow-wrap:break-word;
+    border-bottom: 1px solid gray;
+}
+
+.row > div{
+    border-right: 1px solid gray;
+    height:inherit;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.row > div:last-child{
+    border-right:none;
+}
+
+.row:last-of-type{
+    border-bottom:none;
+}
+
+.total,
+.subTotal,
+.hourSubTotal,
+.rTotal,
+.tableSum {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+td, th {
+    text-align: right;
+}
+
+.resident {
+    border: none;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.content{
+    overflow:auto;
+}
+
+.tableName {
+    font-weight: bold;
+}
+
+.emptyCell {
+    height: 10px;
+}
+
+th {
+    text-align: center;
+}
+
+.partial {
+    overflow: auto;
+    clear: both;
+    padding: 0px;
+}
+
+    .partial span {
+        padding: 0px;
+    }
+.table tbody > tr > .editCell {
+    border: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    background: white;
+    border-bottom: 1px solid lightgray;
+}
+
+
+input, select, textarea {
+    width: 100%;
+    max-width:100%;
+    text-align:inherit;
+    padding-right: 3px;
+}
+
+[type="radio"], [type="checkbox"], [type="date"] {
+    background: none;
+}
+
+[type="date"] {
+    background: none;
+    text-align: left;
+}
+
+[type="text"] {
+    background: none;
+    text-align: center;
+    padding:0;
+    width: 100%;
+}
+
+[type="radio"], [type="checkbox"]{
+    width: 20px;
+}
+
+th{
+    width:7%;
+}
+
+.rightMenu {
+    position: fixed;
+    top: 15vh;
+    float: right;
+    right: 0px;
+    width: 10%;
+}
+
+    .rightMenu li {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+@media(max-width: 1550px) {
+    .rightMenu {
+        display: inline-block;
+        width: auto;
+        position:inherit;
+    }
+
+        .rightMenu li {
+            display: inline-block;
+            width: auto;
+        }
+}
+
+
+
+
+.navbar-toggle {
+    background-image: url(https://placehold.it/250x150);
+}
+
+.body-content {
+    margin-left: 7%;
+    margin-right: 15%;
+    max-width: 100%;
+}
+
+
+.table {
+    float: left;
+}
+
+.group{
+    overflow: auto;
+}
+.information th{
+    width: auto;
+}
+
+.weighted_avg{
+    margin: 0px;
+    padding:0px;
+    margin-top:30px;
+    overflow:auto;
+    width: 40%;
+
+}
+.weighted_avg > table > tbody>  tr > th{
+    width:75%;
+}
+
+.fixedElement {
+    background-color: #c0c0c0;
+    position:inherit;
+    width:100%;
+    z-index:100;
+}
+
+.existingHardware th{
+    max-width: inherit;
+    width:100%;
+    height:inherit;
+
+}
+
+
+
+.fix-search {
+  position: fixed;
+  top: 100px;
+  width:100%;
+  z-index:100;
+}
+
+.editName{
+    padding:0;
+}
+
+.employeeName > input{
+    padding-left:0;
+    max-width:45%;
+}
+
+.employeeLast{
+    text-align:left;
+}
+.employeeFirst{
+    text-align:right;
+}
+
+.newFixed{
+    background-color: #c0c0c0;
+    position:inherit;
+    width:100%;
+    z-index:100;
+}
+
+.empty input {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow:scroll;
+    border:none;
+    background-color: transparent;
+}
+
+.empty{
+    overflow:auto;
+    max-width:none;
+    width: 100%;
+    position:relative;
+}
+
+.empty th{
+    font-size:1em;
+    font-weight:normal;
+}
+
+.empty > table > tbody > tr > td{
+    padding-right:1px;
+    padding-left:1px;
+    margin:0;
+}
+
+@media(max-width: 999px){
+     .body-content, .rightMenu{
+         padding-top: 100px;
+  }
+
+}
+@media(max-width: 768px){
+     .body-content, .rightMenu{
+         padding-top: 0px;
+  }
+
+}
+
+@media(max-width: 1400px) {
+    .rightMenu {
+        display: inline-block;
+    }
+
+        .rightMenu li {
+            display: inline-block;
+            width: auto;
+        }
+        .cloned{
+            visibility:hidden;
+        }
+}
+
+.yearMenu{
+    margin-top:7px;
+}
+
+.btn-group:hover > ul{
+    display:block;
+}
+.dropdown-menu{
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    margin:-1px;
+}
+
+.scrollable-menu{
+    width: 15px;
+}
+
+.yearTextBox{
+    width:75px;
+}
+
+#FamilyViolence:hover > ul{
+    display:block;
+}
+
+.create, .finish-btn, .cancel-btn{
+    width:100px;
+    text-align:center;
+}
+
+.bottom-line{
+    position:absolute;
+    width:75%;
+    left:10%;
+    bottom:40px;
+    float:left;
 }

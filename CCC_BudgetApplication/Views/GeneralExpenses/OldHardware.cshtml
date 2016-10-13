@@ -1,0 +1,41 @@
+﻿@model IQueryable<Application.Models.ExistingHardware>
+
+<table class="table" style="width:40%; clear:both">
+    <tr class="fixedElement existingHardware">
+        <th>Name</th>
+        <th style="padding-right: 20px; padding-left:20px;">Age</th>
+        <th>Amortization</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        decimal serverAmortizationTotal = 0;
+        <tr>
+            <td class="@item.ExistingHardwareID">@Html.EditorFor(m => item.Name)</td>
+            <td>@Html.EditorFor(m => item.Age)</td>
+            <td>@Html.EditorFor(m => item.Amortization)</td>
+            @if (item.Amortization != null) { serverAmortizationTotal += (decimal)item.Amortization; }
+        </tr>
+    }
+    </table>
+
+    <script>
+        function BtnOnclick(value) {
+            alert();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/GeneralExpenses/ExpandExisting")',
+                data: {
+                    parentEls: value
+                },
+                success: function (data) {
+                    $('#divpopup').css("display", "block");
+                    $('#btnExpand').css("display", "none");
+                    $('#divpopup')[0].innerHTML = data;
+                }
+            });
+        }
+        function CollapseDiv() {
+            $('#divpopup').css("display", "none");
+            $('#btnExpand').css("display", "block");
+        }
+    </script>

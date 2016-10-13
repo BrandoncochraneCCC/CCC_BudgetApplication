@@ -1,0 +1,13 @@
+﻿@using Application.Controllers
+@model Application.ViewModels.ITSummaryViewModel
+@{
+    ViewBag.Title = "ITSummary";
+}
+
+<h2>IT Summary</h2>
+<hr />
+
+@Html.Partial("~/Views/GeneralExpenses/GeneralExpense.cshtml", Model.Hardware )
+@Html.Partial("~/Views/GeneralExpenses/GeneralExpense.cshtml", Model.Software )
+@Html.Partial("~/Views/GeneralExpenses/GeneralExpense.cshtml", Model.ITCommunications )
+@Html.Partial("~/Views/GeneralExpenses/OldHardware.cshtml", Model.ExistingHardware)

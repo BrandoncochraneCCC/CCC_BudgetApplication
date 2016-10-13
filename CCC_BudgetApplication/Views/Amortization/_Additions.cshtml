@@ -1,0 +1,69 @@
+﻿@model List<Application.ViewModels.AmortizationViewModel>
+<br />
+<h4>Additions</h4>
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr class="@item.SourceID @item.ViewClass">
+            <td>@Html.ActionLink(@item.Name, "Details", "Additions", new { Id = item.SourceID }, null)</td>
+            <td>Balances: </td>
+            <td>@String.Format("{0:C0}", item.PoolBalance)</td>
+            <td>@String.Format("{0:C0}", item.AmortizationBalance)</td>
+            <td></td>
+            @{
+                string sss = "";
+                if (item.StraightLine)
+                {
+                    sss = String.Format("{0:0}", item.Rate);
+                    sss = sss + " months SL";
+
+                }
+                else
+                {
+                    sss = String.Format("{0:p2}", (item.Rate / 100));
+                }
+                <td>@sss</td>
+            }
+            <td>@String.Format("{0:C0}", item.CurrentAfterRate)</td>
+        </tr>
+        <tr class="@item.ViewClass">
+            <td></td>
+            <td>Additions: </td>
+            <td>@String.Format("{0:C0}", item.AdditionValue)</td>
+            <td>50%</td>
+            <td>
+                @{
+                var x = item.AdditionValue * (decimal)0.5;
+                @String.Format("{0:C0}", x)
+            }
+        </td>
+        @{
+            string str = "";
+            if (item.StraightLine)
+            {
+                str = String.Format("{0:0}", item.Rate);
+                str = str + " months SL";
+
+            }
+            else
+            {
+                str = String.Format("{0:p2}", (item.Rate / 100));
+            }
+            <td>@str</td>
+        }
+        <td>@String.Format("{0:C0}", item.AdditionAfterRate)</td>
+    </tr>
+    <tr class="highlight">
+        <td style="border:none;"></td>
+        <td style="border:none;"></td>
+        <td style="border:none;"></td>
+        <td style="border:none;"></td>
+        <td style="border:none;"></td>
+        <td>Provision:</td>
+        <td>@String.Format("{0:C0}", item.Provision)</td>
+    </tr>
+    <tr style="height:30px;"></tr>
+
+    }
+</table>

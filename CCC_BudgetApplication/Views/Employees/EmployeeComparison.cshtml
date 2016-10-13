@@ -1,0 +1,103 @@
+﻿@model List<Application.ViewModels.Comparison>
+@{
+    ViewBag.Title = "EmployeeComparison";
+}
+
+<h2>Employee Comparison @Model.FirstOrDefault().year</h2>
+
+@{
+    decimal bPrev = 0;
+    decimal aPrev = 0;
+    decimal bCurr = 0;
+    decimal diffP = 0;
+    decimal diffB = 0;
+    decimal diffBP = 0;
+    var currYear = Model.FirstOrDefault().year;
+    var prevYear = currYear - 1;
+
+    <table class="table">
+        <tr class="fixedElement">
+            <th></th>
+            <th>Budgeted @prevYear</th>
+            <th>Actual @prevYear</th>
+            <th>Budgeted @currYear</th>
+            <th>Difference Budgeted @prevYear Actual @prevYear</th>
+            <th>Difference Budgeted @currYear Budgeted @prevYear</th>
+            <th>Difference Budgeted @currYear Actual @prevYear</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@Html.ActionLink(item.Name, "DepartmentSummary", "Employees", new { departmentID = item.SourceID }, null)</th>
+        </tr>
+
+        foreach (var e in item.Employee)
+            {
+            <tr>
+                <td>@Html.ActionLink(e.name, "EmployeeData", "Employees", new { ID = e.SourceID }, null)</td>
+                <td>@Html.DisplayFor(m => e.BudgetedPrev)</td>
+                <td>@Html.DisplayFor(m => e.ActualPrev)</td>
+                <td>@Html.DisplayFor(m => e.BudgetedCurrent)</td>
+                @{
+                    var prev = String.Format("{0:C0}", e.BudgetedPrev - e.ActualPrev);
+                    var diffBud = String.Format("{0:C0}", e.BudgetedCurrent - e.BudgetedPrev);
+                    var diffAct = String.Format("{0:C0}", e.BudgetedCurrent - e.ActualPrev);
+
+                    <td>@prev</td>
+                        <td>@diffBud</td>
+                        <td>@diffAct</td>
+                }
+            </tr>
+                    }
+        <tr class="highlight">
+            <td>@item.Name Total</td>
+            <td>@Html.DisplayFor(m => item.BudgetedPrev)</td>
+            <td>@Html.DisplayFor(m => item.ActualPrev)</td>
+            <td>@Html.DisplayFor(m => item.BudgetedCurrent)</td>
+            @{
+                var preTotal = item.BudgetedPrev - item.ActualPrev;
+                var diffBudTotal = item.BudgetedCurrent - item.BudgetedPrev;
+                var diffActTotal = item.BudgetedCurrent - item.ActualPrev;
+
+                bPrev += item.BudgetedPrev;
+                aPrev += item.ActualPrev;
+                bCurr += item.BudgetedCurrent;
+                diffP += preTotal;
+                diffB += diffBudTotal;
+                diffBP += diffActTotal;
+
+                var pTotal = String.Format("{0:C0}", preTotal);
+                var dBudTotal = String.Format("{0:C0}", diffBudTotal);
+                var dActTotal = String.Format("{0:C0}", diffActTotal);
+
+                <td>@pTotal</td>
+                    <td>@dBudTotal</td>
+                    <td>@dActTotal</td>
+            }
+        </tr>
+        <tr style="height:30px;"></tr>
+}
+    </table>
+
+
+    
+                    var prevTotal = String.Format("{0:C0}", bPrev);
+                    var aTotal = String.Format("{0:C0}", aPrev);
+                    var dTotal = String.Format("{0:C0}", bCurr);
+                    var dP = String.Format("{0:C0}", diffP);
+                    var dB = String.Format("{0:C0}", diffB);
+                    var dBP = String.Format("{0:C0}", diffBP);
+                    <table class="table">
+                        <tr class="highlight">
+                            <td>Total Cost</td>
+                            <td>@prevTotal</td>
+                            <td>@aTotal</td>
+                            <td>@dTotal</td>
+                            <td>@dP</td>
+                            <td>@dB</td>
+                            <td>@dBP</td>
+                        </tr>
+                    </table>
+}
+

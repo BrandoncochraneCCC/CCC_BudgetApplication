@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CCC_BudgetApplication.Controllers
+namespace Application.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ObjectInstanceController
     {
         public ActionResult Index()
         {
+
             return View();
         }
 

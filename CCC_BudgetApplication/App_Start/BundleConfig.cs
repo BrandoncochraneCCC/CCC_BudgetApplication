@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace CCC_BudgetApplication
+namespace Application
 {
     public class BundleConfig
     {
@@ -9,7 +9,12 @@ namespace CCC_BudgetApplication
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/formatter.js",
+                        "~/Scripts/totals.js",
+                        "~/Scripts/formatTable.js",
+                        "~/Scripts/jq-sticky-anything.js",
+                        "~/Scripts/FixedElements.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,7 +30,17 @@ namespace CCC_BudgetApplication
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                                            "~/Content/sticky-footer.css",
+
+                      "~/Content/ViewTabs.css",
+                      "~/Content/media.css"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            "~/Scripts/jquery-ui-{version}.js"));
+
+
         }
     }
 }

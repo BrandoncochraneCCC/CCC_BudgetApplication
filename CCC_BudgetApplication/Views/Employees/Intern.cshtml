@@ -1,0 +1,115 @@
+﻿
+@model IEnumerable<Application.ViewModels.Resident>
+
+@{
+    decimal[] totalData = new decimal[13];
+    decimal viewTotal = 0;
+    
+    foreach (var item in Model)
+    {
+        <h4 style="padding-top:15px;">@Html.ActionLink(item.Name, "Edit", "Employees", new { id = item.residentID }, null)</h4>
+        <div style="overflow:auto;">
+            <table class="table">
+                @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+                <tr class="hour">
+                    <th id="Target">
+                        Targets
+                    </th>
+                    <td class="total"></td>
+
+                    @{
+                        int tCount = 0;
+                        foreach (var x in item.Targets)
+                        {
+                            var text = "";
+                            if (x > 0)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            var column = "data col" + tCount;
+                            <td class="@column">@text</td>
+                            tCount++;
+                        }
+                    }
+                </tr>
+                <tr class="hour">
+                    <th id="GroupTarget">
+                        Group Targets
+                    </th>
+                    <td class="total"></td>
+
+                    @{
+                        int gCount = 0;
+                        foreach (var x in item.GroupTargets)
+                        {
+                            var text = "";
+                            if (x > 0)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            var column = "data col" + gCount;
+                            <td class="@column">@text</td>
+                            gCount++;
+                        }
+                    }
+                </tr>
+                <tr class="hour total">
+
+                    <th class="name"><strong>Total</strong></th>
+                    @{
+                        decimal[] values = new decimal[13];
+                        decimal total = 0;
+                        for (var i = 0; i < 12; i++)
+                        {
+                            values[i + 1] = item.Targets[i] + item.GroupTargets[i];
+                            totalData[i + 1] += item.Targets[i] + item.GroupTargets[i];
+                            total += values[i + 1];
+                            viewTotal += total;
+                        }
+                        values[0] = total;
+                        var index = 0;
+                        foreach (var x in values)
+                        {
+                            var text = "";
+                            if (x != 0)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            var column = "data col" + index;
+                            <td class="@column">@text</td>
+                            index++;
+                        }
+                    }
+
+                </tr>
+
+
+
+            </table>
+        </div>
+
+                        }
+                        totalData[0] = viewTotal;
+                        <table class="table">
+                            <tr class="hour total">
+
+                                <th class="name"><strong>Total</strong></th>
+                                @{
+                                    var col = 0;
+                                    foreach (var x in totalData)
+                                    {
+                                        var text = "";
+                                        if (x != 0)
+                                        {
+                                            text = String.Format("{0:0}", x);
+                                        }
+                                        var column = "data col" + col;
+                                        <td class="@column">@text</td>
+                                        col++;
+                                    }
+                                }
+
+                            </tr>
+                        </table>
+}
+

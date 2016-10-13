@@ -1,0 +1,59 @@
+﻿@model Application.ViewModels.DataTable
+
+
+@{
+    var prevYear = Model.Year - 1;
+    <h4>@Model.tableName</h4>
+    <table class="table salary">
+        <tr>
+            <th>Budgeted @prevYear</th>
+            <th>Actual @prevYear</th>
+            <th>Budgeted @Model.Year</th>
+            <th>Budgeted @Model.Year with raise</th>
+            <th>Hourly Rate</th>
+            <th>Hours Per Year</th>
+        </tr>
+        <tr>
+            @{
+                var line = Model.dataList.First();
+                ViewBag.OldSalary = line.Values[2];
+                for (var i = 0; i < line.Values.Length; i++)
+                {
+                    String displayValue = String.Format("{0:C0}", line.Values[i]);
+                    if (i == 4)
+                    {
+                        displayValue = String.Format("{0:C2}", line.Values[i]);
+                        <td>
+                            <input name="Salary.CurrentBudget" class="text-box single-line" id="hourly_rate" type="text" value="@displayValue" />
+                        </td>
+                    }
+                    else if (i == 5)
+                    {
+                        <td class="hour">@displayValue</td>
+
+                    }
+                    else if (i == 2)
+                    {
+                        <td>
+                            <input name="Salary.CurrentBudget" class="text-box single-line" id="Current_Salary" type="text" value="@displayValue" />
+                        </td>
+                    }
+                    else if (i == 1)
+                    {
+                        <td>
+                            <input name="Salary.PrevActual" class="text-box single-line" id="prev_actual" type="text" value="@displayValue" />
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="data">@displayValue</td>
+
+                    }
+                }
+            }
+        </tr>
+
+
+    </table>
+}
+

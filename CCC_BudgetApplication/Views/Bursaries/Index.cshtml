@@ -1,0 +1,253 @@
+﻿@model Application.ViewModels.ResidentSummary
+
+@{
+    ViewBag.Title = "Resident Bursaries";
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/ResidentScript.js")"></script>
+
+<h2>Residents</h2>
+<div class="col-lg-12 left-menu" style="overflow:auto;">
+    <div class="col-lg-1">
+        <button type="button" class="btn btn-default" style="width:100%;">
+            @Html.ActionLink("First Name ", "Index", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </button>
+    </div>
+
+    <div class="col-lg-1">
+        <button type="button" class="btn btn-default" style="width:100%;">       
+              @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+</button>
+
+    </div>
+
+    <div class="col-lg-1">
+        <button type="button" class="btn btn-default" style="width:100%;">
+            @Html.ActionLink("Start Date", "Index", new { sortOrder = ViewBag.StartSortParm, currentFilter = ViewBag.CurrentFilter })
+ </button>
+
+    </div>
+    <div class="col-lg-1">
+        <button type="button" class="btn btn-default" style="width:100%;"> 
+            @Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.EndSortParm, currentFilter = ViewBag.CurrentFilter })
+</button>
+
+    </div>
+    <div class="col-lg-1">
+        <button type="button" class="btn btn-default" style="width:100%;"> 
+            @Html.ActionLink("Hours", "Index", new { sortOrder = ViewBag.TargetSortParam, currentFilter = ViewBag.CurrentFilter })
+</button>
+
+
+    </div>
+
+        @using (Html.BeginForm("Index", "Bursaries", FormMethod.Get))
+        {
+            <div class="col-lg-4" style="float:right;">
+                <div class="col-lg-8" style="margin-top:2px;">@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)</div>
+                <p class="col-lg-4">
+                    <input type="submit" value="Search" style="text-align:center; padding-right:3px; margin:0;" />
+                </p>
+            </div>
+
+        }
+    </div>
+<hr id="top-of-page"/>
+
+@foreach (var item in Model.residents)
+{
+    <div class="resident">
+        @Html.ActionLink(item.Name, item.Action, item.Controller, new { employeeID = item.residentID, year = item.Year }, null)
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        <tr>
+            <td>@Html.EditorFor(model => item.Employee.StartDate)</td>
+            <td>@Html.EditorFor(model => item.Employee.EndDate)</td>
+        </tr>
+
+        @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+
+        @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml")
+        <tr class="hour">
+            <th id="ResidentTarget">
+                Targets
+            </th>
+            <td class="total"></td>
+
+            @{
+                int tCount = 0;
+                foreach (var x in item.Targets)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + tCount;
+                    <td class="@column">@text</td>
+                    tCount++;
+                }
+            }
+        </tr>
+        <tr class="hour">
+            <th id="GroupTarget">
+                Group Targets
+            </th>
+            <td class="total"></td>
+
+            @{
+                int gCount = 0;
+                foreach (var x in item.GroupTargets)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + gCount;
+                    <td class="@column">@text</td>
+                    gCount++;
+                }
+            }
+        </tr>
+
+        @Html.Partial("~/Views/Shared/_EmptyLine.cshtml")
+        <tr>
+            <th>
+                Bursary
+            </th>
+            <td class="total"></td>
+            @{
+                var count = 1;
+                foreach (var x in item.Bursaries)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + count;
+                    <td class="@column">@text</td>
+                    count++;
+                }
+            }
+
+        </tr>
+        <tr>
+            <th>
+                Clawback
+            </th>
+            <td class="total"></td>
+
+            @{
+                var ct = 1;
+                foreach (var x in item.Clawbacks)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + ct;
+                    <td class="@column">@text</td>
+                    ct++;
+                }
+            }
+        </tr>
+
+        <tr>
+
+        <tr class="tableSum">
+
+            <th class="name"><strong>Total</strong></th>
+            @{
+                var index = 0;
+                foreach (var x in item.Totals)
+                {
+                    var text = "";
+                    if (x > 0)
+                    {
+                        text = String.Format("{0:0}", x);
+                    }
+                    var column = "data col" + index;
+                    <td class="@column">@text</td>
+                    index++;
+                }
+            }
+
+        </tr>
+    </table>
+                }
+
+@{
+    var table = Model.totalTable;
+    <table class="table totalTable">
+        @foreach (var item in table.dataList)
+        {
+            <tr class="">
+                <td>@item.Name</td>
+                <td class="total"></td>
+                @{
+                    var index = 0;
+                    foreach (var x in item.Values)
+                    {
+                        var text = "";
+                        if (x != 0)
+                        {
+                            text = String.Format("{0:C0}", x);
+                        }
+                        var column = "data col" + index;
+                        <td class="@column">@text</td>
+                        index++;
+                    }
+                }
+
+            </tr>
+                    }
+    </table>
+}
+
+@{
+    var bursaryTable = Model.bursaryTable;
+    <table class="table totalTable">
+        @{
+            var rowCount = 0;
+            foreach (var item in bursaryTable.dataList)
+            {
+                <tr class="@item.viewClass">
+                    <td>@item.Name</td>
+
+                    <td class="total"></td>
+                    @{
+                        var index = 0;
+                        foreach (var x in item.Values)
+                        {
+                            var text = "";
+                            if (rowCount == 3)
+                            {
+                                text = String.Format("{0:0}", x);
+                            }
+                            else
+                            {
+                                text = String.Format("{0:C0}", x);
+                            }
+                            var column = "data col" + index;
+                            <td class="@column">@text</td>
+                            index++;
+                        }
+                    }
+
+                </tr>
+                            rowCount++;
+                        }
+        }
+
+    </table>
+}

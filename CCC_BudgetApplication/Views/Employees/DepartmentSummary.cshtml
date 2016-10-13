@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Application.ViewModels.DataTable>
+
+@{
+    ViewBag.Title = "DepartmentSummary";
+}
+
+<h2>@Html.ActionLink("Department Summary", "EmployeeCost", "Employees", new { }, null)</h2>
+<hr />
+
+@{
+    foreach (var table in Model)
+    {
+        <h4>
+            @Html.ActionLink(table.tableName, "Details", "Employees", new { year = table.Year, departmentID = table.sourceID }, null)
+        </h4>
+        <table class="table">
+
+        @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml", @table.tableName)
+        @Html.Partial("~/Views/Shared/_DataTable.cshtml", table)
+        @Html.Partial("~/Views/Shared/_TableSum.cshtml")
+        </table>
+        <br />
+    }
+
+}
+
+
+
+

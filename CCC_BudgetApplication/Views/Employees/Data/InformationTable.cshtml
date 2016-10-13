@@ -1,0 +1,18 @@
+﻿@model Application.ViewModels.employeeData.InformationTable
+
+
+<h4>Information</h4>
+<table class="table information">
+    <tr>
+        <th>Department</th>
+        <th>Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    <tr>
+        <td>@Html.DropDownListFor(m => Model.informationTable.DepartmentID, Model.departments)</td>
+        <td>@Html.DropDownListFor(m => Model.informationTable.TypeID, Model.types)</td>
+        <td>@Html.EditorFor(m => Model.informationTable.StartDate)</td>
+        <td>@Html.EditorFor(m => Model.informationTable.EndDate)</td>
+    </tr>
+</table>

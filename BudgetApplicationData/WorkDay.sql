@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[WorkDay]
+(
+	[WorkDayID] INT NOT NULL IDENTITY(1, 1), 
+	[Date] DATETIME NOT NULL, 
+	[Value] DECIMAL(19, 4) NOT NULL, 
+	PRIMARY KEY CLUSTERED ([WorkDayID] ASC)
+)

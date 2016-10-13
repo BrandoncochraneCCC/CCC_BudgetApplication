@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74104E46-BF52-47EB-B955-2F71770E807D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application</RootNamespace>
+    <AssemblyName>BudgetApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices">
+      <HintPath>..\packages\System.DirectoryServices.4.0.0\lib\System.DirectoryServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdditionsController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AmortizationController.cs" />
+    <Compile Include="Controllers\AmortizationsController.cs" />
+    <Compile Include="Controllers\BudgetComparisonController.cs" />
+    <Compile Include="Controllers\BugReportsController.cs" />
+    <Compile Include="Controllers\BursariesController.cs" />
+    <Compile Include="Controllers\CapitalExpendituresController.cs" />
+    <Compile Include="Controllers\CapitalExpenditures\CapitalExpenditureServices.cs" />
+    <Compile Include="Controllers\ChangeLogsController.cs" />
+    <Compile Include="Controllers\CompareObjectsController.cs" />
+    <Compile Include="Controllers\CounsellingController.cs" />
+    <Compile Include="Controllers\CounsellingProgramController.cs" />
+    <Compile Include="Controllers\CounsellingSummaries\CostOfServiceCounsellingHoursController.cs" />
+    <Compile Include="Controllers\CounsellingSummaries\CounsellingAnalysisController.cs" />
+    <Compile Include="Controllers\CounsellingSummaries\CounsellingHours.cs" />
+    <Compile Include="Controllers\CounsellingSummaries\GroupSummaryByProgram.cs" />
+    <Compile Include="Controllers\CounsellingSummaries\IndividualProgramSummary.cs" />
+    <Compile Include="Controllers\Counselling\EmployeeCounsellingHoursController.cs" />
+    <Compile Include="Controllers\Counselling\GroupCounsellingHoursController.cs" />
+    <Compile Include="Controllers\Counselling\SummaryCounsellingController.cs" />
+    <Compile Include="Controllers\Counselling\SupervisionHoursController.cs" />
+    <Compile Include="Controllers\DeferredAmortizationsController.cs" />
+    <Compile Include="Controllers\Disposable.cs" />
+    <Compile Include="Controllers\EmployeeEditController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\Employees\DepartmentSummaryController.cs" />
+    <Compile Include="Controllers\Employees\EmployeeDataController.cs" />
+    <Compile Include="Controllers\Employees\EmployeeRaiseController.cs" />
+    <Compile Include="Controllers\Employees\InternController.cs" />
+    <Compile Include="Controllers\GAGroupsController.cs" />
+    <Compile Include="Controllers\GeneralExpensesController.cs" />
+    <Compile Include="Controllers\GeneralExpenses\GeneralExpense.cs" />
+    <Compile Include="Controllers\GeneralExpenses\GSTExpense.cs" />
+    <Compile Include="Controllers\GeneralExpenses\TravelExpenseData.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HoursPerYearsController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\InstanceYearController.cs" />
+    <Compile Include="Controllers\LogHelper.cs" />
+    <Compile Include="Controllers\ObjectInstanceController.cs" />
+    <Compile Include="Controllers\PoolsController.cs" />
+    <Compile Include="Controllers\ProgramBudgetController.cs" />
+    <Compile Include="Controllers\PropagationController.cs" />
+    <Compile Include="Controllers\Queries\BudgetComparisonQueries.cs" />
+    <Compile Include="Controllers\Queries\CapitalExpenditureQueries.cs" />
+    <Compile Include="Controllers\Queries\CounsellingGroupQueries.cs" />
+    <Compile Include="Controllers\Queries\CounsellingServicesQueries.cs" />
+    <Compile Include="Controllers\Queries\EmployeeQueries.cs" />
+    <Compile Include="Controllers\Queries\GeneralExpenseQueries.cs" />
+    <Compile Include="Controllers\Queries\RevenueSummaryQueries.cs" />
+    <Compile Include="Controllers\Queries\ServiceExpenseQueries.cs" />
+    <Compile Include="Controllers\Queries\UserSummaryQueries.cs" />
+    <Compile Include="Controllers\ResidentController.cs" />
+    <Compile Include="Controllers\RevenueDatasController.cs" />
+    <Compile Include="Controllers\RevenueGroupController.cs" />
+    <Compile Include="Controllers\RevenuesController.cs" />
+    <Compile Include="Controllers\RevenueTable\RevenueTableController.cs" />
+    <Compile Include="Controllers\ServiceExpenseController.cs" />
+    <Compile Include="Controllers\ServiceExpensesController.cs" />
+    <Compile Include="Controllers\ServiceExpenses\ServiceExpenseSummaryController.cs" />
+    <Compile Include="Controllers\Services\ArrayServices.cs" />
+    <Compile Include="Controllers\Services\CounsellingServices.cs" />
+    <Compile Include="Controllers\Services\DataTables.cs" />
+    <Compile Include="Controllers\Services\DateTimeServices.cs" />
+    <Compile Include="Controllers\Services\DepartmentServices.cs" />
+    <Compile Include="Controllers\Services\EmployeeServices.cs" />
+    <Compile Include="Controllers\TopLevelSummaryController.cs" />
+    <Compile Include="Controllers\UserSummaryController.cs" />
+    <Compile Include="Controllers\YearlyDataController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ActualData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActualValue.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Addition.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Airfare.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Amortization.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AverageRate.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BenefitData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BudgetDataEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetDataEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BudgetDataEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BudgetDataEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetDataEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BugReport.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bursary.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapitalExpenditure.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapitalExpenditureComparison.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapitalExpenditureData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChangeLog.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyGasMileage.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyGasMileageData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Conference.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContractHour.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CounsellingGroupType.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CounsellingService.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CounsellingServiceData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__RefactorLog.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeductionList.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeductionType.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeferredAmortization.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Disposal.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeBonu.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeDeduction.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeLeave.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeRaise.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeTarget.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeType.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExistingHardware.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GAExpense.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GAExpenseComparison.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GAGroup.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GasMileage.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupTherapyTarget.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupTherapyTarget1.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GSTRejection.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hotel.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoursPerYear.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InternTarget.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LockedYear.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MealEntertainment.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MiscTravel.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MonthlyGroup.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NonRevenueHour.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NonRevenueHourData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pool.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Program.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProgramSection.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectedFeePerHour.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResidentTarget.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Revenue.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RevenueComparison.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RevenueData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Salary.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SectionRevenueHour.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceExpense.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceExpenseComparison.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiceExpenseData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stack.cs" />
+    <Compile Include="Models\TargetData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnchangingValue.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserBuiltSummary.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserBuiltSummaryData.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vendor.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VendorRecord.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkDay.cs">
+      <DependentUpon>BudgetDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AdminFormModel.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\AmortizationViewModel.cs" />
+    <Compile Include="ViewModels\BudgetComparison.cs" />
+    <Compile Include="ViewModels\Comparison.cs" />
+    <Compile Include="ViewModels\CostOfService.cs" />
+    <Compile Include="ViewModels\CostOfServiceViewModel.cs" />
+    <Compile Include="ViewModels\CounsellingProgram.cs" />
+    <Compile Include="ViewModels\CurrentYearData.cs" />
+    <Compile Include="ViewModels\Data.cs" />
+    <Compile Include="ViewModels\DataLine.cs" />
+    <Compile Include="ViewModels\DataTable.cs" />
+    <Compile Include="ViewModels\EmployeeDataViewModel.cs" />
+    <Compile Include="ViewModels\employeeData\Deductions.cs" />
+    <Compile Include="ViewModels\employeeData\EmployeeBenefits.cs" />
+    <Compile Include="ViewModels\employeeData\InformationTable.cs" />
+    <Compile Include="ViewModels\EmployeeListViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeView.cs" />
+    <Compile Include="ViewModels\EmpSalary.cs" />
+    <Compile Include="ViewModels\ExistingHardwareViewModel.cs" />
+    <Compile Include="ViewModels\groupCounselling.cs" />
+    <Compile Include="ViewModels\ITSummaryViewModel.cs" />
+    <Compile Include="ViewModels\ProgramBudgetViewModel.cs" />
+    <Compile Include="ViewModels\ProgramViewModel.cs" />
+    <Compile Include="ViewModels\QueryableData.cs" />
+    <Compile Include="ViewModels\Resident.cs" />
+    <Compile Include="ViewModels\ResidentSummary.cs" />
+    <Compile Include="ViewModels\ResourceAllocation.cs" />
+    <Compile Include="ViewModels\RevenueGroup.cs" />
+    <Compile Include="ViewModels\RevenueSummary.cs" />
+    <Compile Include="ViewModels\TopLevelSummary.cs" />
+    <Compile Include="ViewModels\UserSummaryViewModel.cs" />
+    <Compile Include="ViewModels\YearInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\media.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\print.css" />
+    <Content Include="Content\sticky-footer.css" />
+    <Content Include="Content\ViewTabs.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\BudgetDataEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetDataEntities.edmx</DependentUpon>
+      <LastGenOutput>BudgetDataEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BudgetDataEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetDataEntities.edmx</DependentUpon>
+      <LastGenOutput>BudgetDataEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\allTotals.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\BudgetDataEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BudgetDataEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BudgetDataEntities.edmx.diagram">
+      <DependentUpon>BudgetDataEntities.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\BudgetYear.js" />
+    <Content Include="Scripts\BugReportScript.js" />
+    <Content Include="Scripts\ChangeDetector.js" />
+    <Content Include="Scripts\EmployeeDataScript.js" />
+    <Content Include="Scripts\EmployeesScript.js" />
+    <Content Include="Scripts\Expand.js" />
+    <Content Include="Scripts\FixedElements.js" />
+    <Content Include="Scripts\formatTable.js" />
+    <Content Include="Scripts\formatter.js" />
+    <Content Include="Scripts\GeneralExpenseScipt.js" />
+    <Content Include="Scripts\jq-sticky-anything.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\removeDecimals.js" />
+    <Content Include="Scripts\ResidentScript.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\RevenueGroupScript.js" />
+    <Content Include="Scripts\ServiceExpenseScript.js" />
+    <Content Include="Scripts\subtotal.js" />
+    <Content Include="Scripts\totals.js" />
+    <Content Include="Scripts\waypoint\gulpfile.js" />
+    <Content Include="Scripts\waypoint\lib\jquery.waypoints.js" />
+    <Content Include="Scripts\waypoint\lib\jquery.waypoints.min.js" />
+    <Content Include="Scripts\waypoint\lib\noframework.waypoints.js" />
+    <Content Include="Scripts\waypoint\lib\noframework.waypoints.min.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\infinite.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\infinite.min.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\inview.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\inview.min.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\sticky.js" />
+    <Content Include="Scripts\waypoint\lib\shortcuts\sticky.min.js" />
+    <Content Include="Scripts\waypoint\lib\waypoints.debug.js" />
+    <Content Include="Scripts\waypoint\lib\zepto.waypoints.js" />
+    <Content Include="Scripts\waypoint\lib\zepto.waypoints.min.js" />
+    <Content Include="Scripts\waypoint\licenses.txt" />
+    <Content Include="Scripts\waypoint\src\adapters\jquery-zepto-fn-extension.js" />
+    <Content Include="Scripts\waypoint\src\adapters\jquery.js" />
+    <Content Include="Scripts\waypoint\src\adapters\noframework.js" />
+    <Content Include="Scripts\waypoint\src\adapters\zepto.js" />
+    <Content Include="Scripts\waypoint\src\context.js" />
+    <Content Include="Scripts\waypoint\src\debug.js" />
+    <Content Include="Scripts\waypoint\src\group.js" />
+    <Content Include="Scripts\waypoint\src\shortcuts\infinite.js" />
+    <Content Include="Scripts\waypoint\src\shortcuts\inview.js" />
+    <Content Include="Scripts\waypoint\src\shortcuts\sticky.js" />
+    <Content Include="Scripts\waypoint\src\waypoint.js" />
+    <Content Include="Scripts\waypoint\test\adapter-fn-spec.js" />
+    <Content Include="Scripts\waypoint\test\context-spec.js" />
+    <Content Include="Scripts\waypoint\test\debug-spec.js" />
+    <Content Include="Scripts\waypoint\test\fixtures\infinite.html" />
+    <Content Include="Scripts\waypoint\test\fixtures\standard.html" />
+    <Content Include="Scripts\waypoint\test\fixtures\sticky.html" />
+    <Content Include="Scripts\waypoint\test\group-spec.js" />
+    <Content Include="Scripts\waypoint\test\infinite-spec.js" />
+    <Content Include="Scripts\waypoint\test\inview-spec.js" />
+    <Content Include="Scripts\waypoint\test\lib\coffee-script.js" />
+    <Content Include="Scripts\waypoint\test\lib\jasmine-html.js" />
+    <Content Include="Scripts\waypoint\test\lib\jasmine-jquery.js" />
+    <Content Include="Scripts\waypoint\test\lib\jasmine.css" />
+    <Content Include="Scripts\waypoint\test\lib\jasmine.js" />
+    <Content Include="Scripts\waypoint\test\lib\require.js" />
+    <Content Include="Scripts\waypoint\test\lib\testloader.js" />
+    <Content Include="Scripts\waypoint\test\settings.js" />
+    <Content Include="Scripts\waypoint\test\sticky-spec.js" />
+    <Content Include="Scripts\waypoint\test\waypoint-spec.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CapitalExpenditures\CapitalExpenditure.cshtml" />
+    <Content Include="Views\CapitalExpenditures\CapitalExpenditureSummary.cshtml" />
+    <Content Include="Views\CapitalExpenditures\Create.cshtml" />
+    <Content Include="Views\CapitalExpenditures\Delete.cshtml" />
+    <Content Include="Views\CapitalExpenditures\Details.cshtml" />
+    <Content Include="Views\CapitalExpenditures\Edit.cshtml" />
+    <Content Include="Views\CapitalExpenditures\Index.cshtml" />
+    <Content Include="Views\ChangeLogs\Create.cshtml" />
+    <Content Include="Views\ChangeLogs\Delete.cshtml" />
+    <Content Include="Views\ChangeLogs\Details.cshtml" />
+    <Content Include="Views\ChangeLogs\Edit.cshtml" />
+    <Content Include="Views\ChangeLogs\Index.cshtml" />
+    <Content Include="Views\CounsellingProgram\Data\_FacilitatorTable.cshtml" />
+    <Content Include="Views\CounsellingProgram\Data\_GroupDataTable.cshtml" />
+    <Content Include="Views\CounsellingProgram\Data\_SectionHourTable.cshtml" />
+    <Content Include="Views\CounsellingProgram\PreparationHours.cshtml" />
+    <Content Include="Views\CounsellingProgram\Program.cshtml" />
+    <Content Include="Views\CounsellingProgram\RevenueHours.cshtml" />
+    <Content Include="Views\CounsellingProgram\SummaryByProgram.cshtml" />
+    <Content Include="Views\CounsellingProgram\TotalGroupHours.cshtml" />
+    <Content Include="Views\Counselling\CostofServiceCounsellingHour.cshtml" />
+    <Content Include="Views\Counselling\CounsellingAnalysis.cshtml" />
+    <Content Include="Views\Counselling\EmployeeCounsellingHours.cshtml" />
+    <Content Include="Views\Counselling\GroupCounsellingHours.cshtml" />
+    <Content Include="Views\Counselling\Index.cshtml" />
+    <Content Include="Views\Counselling\SummaryCounselling.cshtml" />
+    <Content Include="Views\Counselling\SupervisionHours.cshtml" />
+    <Content Include="Views\DeferredAmortizations\Create.cshtml" />
+    <Content Include="Views\DeferredAmortizations\Delete.cshtml" />
+    <Content Include="Views\DeferredAmortizations\Details.cshtml" />
+    <Content Include="Views\DeferredAmortizations\Edit.cshtml" />
+    <Content Include="Views\DeferredAmortizations\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Data\BenefitTable.cshtml" />
+    <Content Include="Views\Employees\Data\BudgetedSalaryTable.cshtml" />
+    <Content Include="Views\Employees\Data\DeductionTable.cshtml" />
+    <Content Include="Views\Employees\Data\InformationTable.cshtml" />
+    <Content Include="Views\Employees\Data\InternPartial.cshtml" />
+    <Content Include="Views\Employees\Data\RaiseInput.cshtml" />
+    <Content Include="Views\Employees\Data\RaiseTable.cshtml" />
+    <Content Include="Views\Employees\Data\SalaryTable.cshtml" />
+    <Content Include="Views\Employees\Data\TargetTable.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\DepartmentSummary.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\EmployeeComparison.cshtml" />
+    <Content Include="Views\Employees\EmployeeCost.cshtml" />
+    <Content Include="Views\Employees\EmployeeData.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Intern.cshtml" />
+    <Content Include="Views\Employees\Targets.cshtml" />
+    <Content Include="Views\EmployeeTargets\Create.cshtml" />
+    <Content Include="Views\EmployeeTargets\Delete.cshtml" />
+    <Content Include="Views\EmployeeTargets\Details.cshtml" />
+    <Content Include="Views\EmployeeTargets\Edit.cshtml" />
+    <Content Include="Views\EmployeeTargets\Index.cshtml" />
+    <Content Include="Views\GAGroups\Create.cshtml" />
+    <Content Include="Views\GAGroups\Delete.cshtml" />
+    <Content Include="Views\GAGroups\Details.cshtml" />
+    <Content Include="Views\GAGroups\Edit.cshtml" />
+    <Content Include="Views\GAGroups\Index.cshtml" />
+    <Content Include="Views\GeneralExpenses\ExistingHardware.cshtml" />
+    <Content Include="Views\GeneralExpenses\ExpandExisting.cshtml" />
+    <Content Include="Views\GeneralExpenses\GeneralExpense.cshtml" />
+    <Content Include="Views\GeneralExpenses\GeneralExpenseSummary.cshtml" />
+    <Content Include="Views\GeneralExpenses\Index.cshtml" />
+    <Content Include="Views\GeneralExpenses\ITSummary.cshtml" />
+    <Content Include="Views\GeneralExpenses\OldHardware.cshtml" />
+    <Content Include="Views\GeneralExpenses\setYear.cshtml" />
+    <Content Include="Views\GeneralExpenses\TravelExpense.cshtml" />
+    <Content Include="Views\GeneralExpenses\_GAExpense.cshtml" />
+    <Content Include="Views\GeneralExpenses\_Summary.cshtml" />
+    <Content Include="Views\HoursPerYears\Create.cshtml" />
+    <Content Include="Views\HoursPerYears\Delete.cshtml" />
+    <Content Include="Views\HoursPerYears\Details.cshtml" />
+    <Content Include="Views\HoursPerYears\Edit.cshtml" />
+    <Content Include="Views\HoursPerYears\Index.cshtml" />
+    <Content Include="Views\Index\Empty.cshtml" />
+    <Content Include="Views\Index\FailureMessage.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Index\ResultMessage.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\ObjectInstanceController\InstanceController.cshtml" />
+    <Content Include="Views\Pools\Create.cshtml" />
+    <Content Include="Views\Pools\Delete.cshtml" />
+    <Content Include="Views\Pools\Details.cshtml" />
+    <Content Include="Views\Pools\Edit.cshtml" />
+    <Content Include="Views\Pools\Index.cshtml" />
+    <Content Include="Views\ProgramBudget\Counselling.cshtml" />
+    <Content Include="Views\ProgramBudget\ProgramBudget.cshtml" />
+    <Content Include="Views\ProgramBudget\_AllocationTable.cshtml" />
+    <Content Include="Views\RevenueGroup\Create.cshtml" />
+    <Content Include="Views\RevenueGroup\index.cshtml" />
+    <Content Include="Views\Revenues\Create.cshtml" />
+    <Content Include="Views\Revenues\Delete.cshtml" />
+    <Content Include="Views\Revenues\Details.cshtml" />
+    <Content Include="Views\Revenues\Edit.cshtml" />
+    <Content Include="Views\Revenues\Index.cshtml" />
+    <Content Include="Views\Revenues\ListAll.cshtml" />
+    <Content Include="Views\Revenues\_Summary.cshtml" />
+    <Content Include="Views\ServiceExpenses\Create.cshtml" />
+    <Content Include="Views\ServiceExpenses\Delete.cshtml" />
+    <Content Include="Views\ServiceExpenses\Details.cshtml" />
+    <Content Include="Views\ServiceExpenses\Edit.cshtml" />
+    <Content Include="Views\ServiceExpenses\Index.cshtml" />
+    <Content Include="Views\ServiceExpense\Consultant.cshtml" />
+    <Content Include="Views\ServiceExpense\ServiceExpense.cshtml" />
+    <Content Include="Views\ServiceExpense\ServiceExpenseSummary.cshtml" />
+    <Content Include="Views\ServiceExpense\_ContractorHeader.cshtml" />
+    <Content Include="Views\ServiceExpense\_Summary.cshtml" />
+    <Content Include="Views\TopLevelSummary\BudgetComparison.cshtml" />
+    <Content Include="Views\TopLevelSummary\Index.cshtml" />
+    <Content Include="Scripts\waypoint\.eslintrc" />
+    <Content Include="Scripts\waypoint\.gitignore" />
+    <Content Include="Scripts\waypoint\.travis.yml" />
+    <Content Include="Scripts\waypoint\bower.json" />
+    <Content Include="Scripts\waypoint\CHANGELOG.md" />
+    <Content Include="Scripts\waypoint\CONTRIBUTING.md" />
+    <Content Include="Scripts\waypoint\package.json" />
+    <Content Include="Scripts\waypoint\README.md" />
+    <Content Include="Scripts\waypoint\testem.json" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_AllTableSums.cshtml" />
+    <Content Include="Views\Shared\_CornerCellValueTableHeader.cshtml" />
+    <Content Include="Views\Shared\_DataTable.cshtml" />
+    <Content Include="Views\Shared\_EmptyLine.cshtml" />
+    <Content Include="Views\Shared\_hourSubTotal.cshtml" />
+    <Content Include="Views\Shared\_HourSum.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_NoNameTableHeader.cshtml" />
+    <Content Include="Views\Shared\_percentValues.cshtml" />
+    <Content Include="Views\Shared\_RightSideMenu.cshtml" />
+    <Content Include="Views\Shared\_SubTotal.cshtml" />
+    <Content Include="Views\Shared\_TableData.cshtml" />
+    <Content Include="Views\Shared\_TableHeader.cshtml" />
+    <Content Include="Views\Shared\_tableName.cshtml" />
+    <Content Include="Views\Shared\_TableNameActionLink.cshtml" />
+    <Content Include="Views\Shared\_Tablesum.cshtml" />
+    <Content Include="Views\Shared\_TotalsTable.cshtml" />
+    <Content Include="Views\Shared\_UpdatedRow.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Additions\Create.cshtml" />
+    <Content Include="Views\Additions\Details.cshtml" />
+    <Content Include="Views\Additions\Index.cshtml" />
+    <Content Include="Views\Admin\Benefits\_CreateBenefit.cshtml" />
+    <Content Include="Views\Admin\Counselling\_counsellingType.cshtml" />
+    <Content Include="Views\Admin\Counselling\_createProgram.cshtml" />
+    <Content Include="Views\Admin\Employee\_departments.cshtml" />
+    <Content Include="Views\Admin\Employee\_HoursPerYear.cshtml" />
+    <Content Include="Views\Admin\Employee\_type.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_AdminForm.cshtml" />
+    <Content Include="Views\Amortizations\Create.cshtml" />
+    <Content Include="Views\Amortizations\Delete.cshtml" />
+    <Content Include="Views\Amortizations\Details.cshtml" />
+    <Content Include="Views\Amortizations\Edit.cshtml" />
+    <Content Include="Views\Amortizations\Index.cshtml" />
+    <Content Include="Views\Amortization\AmortizationCost.cshtml" />
+    <Content Include="Views\Amortization\DeferredAmortizationCost.cshtml" />
+    <Content Include="Views\Amortization\_Accumulated.cshtml" />
+    <Content Include="Views\Amortization\_Additions.cshtml" />
+    <Content Include="Views\Amortization\_AmortizationCalendar.cshtml" />
+    <Content Include="Views\Amortization\_Cost.cshtml" />
+    <Content Include="Views\ApplicationInsights.config" />
+    <Content Include="Views\BugReports\Create.cshtml" />
+    <Content Include="Views\BugReports\Delete.cshtml" />
+    <Content Include="Views\BugReports\Details.cshtml" />
+    <Content Include="Views\BugReports\Edit.cshtml" />
+    <Content Include="Views\BugReports\Index.cshtml" />
+    <Content Include="Views\Bursaries\Index.cshtml" />
+    <Content Include="Views\Bursaries\Resident.cshtml" />
+    <Content Include="Views\YearlyData\YearData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\UserSummary\" />
+    <Folder Include="Scripts\waypoint\adapters\" />
+    <Folder Include="Scripts\waypoint\shortcuts\" />
+    <Folder Include="Views\Admins\" />
+    <Folder Include="Views\BudgetComparison\" />
+    <Folder Include="Views\CapitalItems\" />
+    <Folder Include="Views\CompareObjects\" />
+    <Folder Include="Views\CostOfServiceCounsellingHours\" />
+    <Folder Include="Views\CounsellingAnalysis\" />
+    <Folder Include="Views\FileWriter\" />
+    <Folder Include="Views\GroupCounsellingHours\" />
+    <Folder Include="Views\GSTRejections\" />
+    <Folder Include="Views\Intern\" />
+    <Folder Include="Views\Propagation\" />
+    <Folder Include="Views\RolesAdmin\" />
+    <Folder Include="Views\SupervisionHours\" />
+    <Folder Include="Views\UsersAdmin\" />
+    <Folder Include="Views\UserSummary\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63614</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63614/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

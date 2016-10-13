@@ -1,0 +1,29 @@
+﻿@model List<Application.ViewModels.AmortizationViewModel>
+<br />
+<h4>Accumulated Amortization</h4>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Balance Dec @{var yr = ViewBag.Year - 1; @yr}</th>
+        <th>Current Year Provision</th>
+        <th>Disposals</th>
+        <th>Balance @ViewBag.Year</th>
+        <th>NBV</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="@item.SourceID @item.ViewClass">
+            <td>@item.Name</td>
+            <td>@String.Format("{0:C0}", item.PoolBalance)</td>
+            <td>@String.Format("{0:C0}", item.Provision)</td>
+            <td>@String.Format("{0:C0}", item.DisposalValue)</td>
+            <td>@String.Format("{0:C0}", item.AmortizationBalance)</td>
+            <td>
+                @{
+                    var x = (item.PoolBalance + item.AdditionValue) - (item.AmortizationBalance);
+                    @String.Format("{0:C0}", x)
+                }
+            </td>
+        </tr>
+                    }
+</table>

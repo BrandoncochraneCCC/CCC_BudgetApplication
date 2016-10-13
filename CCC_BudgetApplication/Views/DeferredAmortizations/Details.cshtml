@@ -1,0 +1,50 @@
+﻿@model Application.Models.DeferredAmortization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeferredAmortization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PoolBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoolBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccumulatedAmortization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccumulatedAmortization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pool.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pool.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeferredAmortizationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Application.ViewModels.DataTable>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(this).find("table:last > tbody> tr:last").addClass("tableSum");
+    });
+
+</script>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.ActionLink("Counselling Analysis", "Index", "Counselling")</h2>
+
+
+
+<!--Table header row-->
+
+
+@foreach (var table in Model)
+{
+    @Html.Partial("~/Views/Shared/_TableName.cshtml", @table)
+    <table class="table">
+
+        @Html.Partial("~/Views/Shared/_NoNameTableHeader.cshtml", @table.tableName)
+
+        @foreach (var item in table.dataList)
+        {
+
+            <tr class="@item.viewClass">
+                @{
+                    <td class="name">
+                        @item.Name
+                    </td>
+                    var count = 1;
+
+                    if (item.Values != null)
+                    {
+                        if (item.isAverage)
+                        {
+                            <td class="avgTotal total"></td>
+                            foreach (var x in item.Values)
+                            {
+                                var text = "";
+                                if (x != 0)
+                                {
+                                    text = String.Format("{0:0}", x);
+                                }
+                                var column = "average data col" + count;
+                                <td class="@column">@text</td>
+                                count++;
+                            }
+                        }
+                        else
+                        {
+                            <td class="total"></td>
+                            foreach (var x in item.Values)
+                            {
+                                var text = "";
+                                if (x != 0)
+                                {
+                                    if (item.viewClass == "hour")
+                                    {
+                                        text = String.Format("{0:0}", x);
+                                    }
+                                    else
+                                    {
+                                        text = String.Format("{0:C0}", x);
+
+                                    }
+
+                                }
+                                var column = "data col" + count;
+                                <td class="@column">@text</td>
+                                count++;
+                            }
+                        }
+
+
+                    }
+                }
+            </tr>
+
+
+                    }
+    </table>
+
+                    }
+
+
